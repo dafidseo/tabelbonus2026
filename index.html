@@ -8,11 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
     font-family:'Poppins', sans-serif;
@@ -22,7 +18,7 @@ body{
 
 .container{
     width:95%;
-    max-width:1200px;
+    max-width:1100px;
     margin:auto;
     padding:30px 0;
 }
@@ -53,25 +49,16 @@ h1{
     margin-bottom:35px;
 }
 
-/* ===== TABLE ===== */
-
-.table-wrapper{
-    width:100%;
-}
-
 table{
     width:100%;
     border-collapse:collapse;
-    table-layout:auto;
 }
 
 th{
     background:linear-gradient(90deg,#facc15,#f59e0b);
     color:#0f172a;
-    font-weight:600;
     padding:10px 6px;
     font-size:clamp(11px,2.5vw,14px);
-    text-align:center;
 }
 
 td{
@@ -79,14 +66,11 @@ td{
     text-align:center;
     font-size:clamp(10px,2.3vw,13px);
     border-bottom:1px solid rgba(255,255,255,0.08);
-    white-space:nowrap;
 }
 
 tr:hover{
     background:rgba(255,255,255,0.05);
 }
-
-/* ===== INPUT ===== */
 
 .input-center{
     text-align:center;
@@ -112,13 +96,22 @@ input:focus{
 }
 
 .result{
-    margin-top:15px;
-    padding:12px;
-    border-radius:10px;
-    background:rgba(250,204,21,0.1);
+    margin-top:18px;
+    padding:14px;
+    border-radius:12px;
+    background:rgba(250,204,21,0.08);
     font-size:14px;
-    line-height:1.6;
-    text-align:center;
+}
+
+.result-item{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.result-item:last-child{
+    border-bottom:none;
 }
 
 .highlight{
@@ -126,11 +119,14 @@ input:focus{
     font-weight:600;
 }
 
-.note{
-    font-size:12px;
-    opacity:0.8;
-    margin-top:10px;
-    text-align:center;
+/* Mobile layout result jadi vertikal */
+@media(max-width:600px){
+    .result-item{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:4px;
+    }
 }
 </style>
 </head>
@@ -144,7 +140,7 @@ input:focus{
 <div class="section-title">Bonus Basic</div>
 
 <div class="card">
-<div class="table-wrapper">
+
 <table>
 <thead>
 <tr>
@@ -163,7 +159,6 @@ input:focus{
 <tr><td>5.000</td><td>Lv 4</td><td>25H</td><td>120J</td><td>3,36</td><td>Rp 16.800</td></tr>
 </tbody>
 </table>
-</div>
 
 <div class="input-center">
 <input type="text" id="basicInput" placeholder="Masukkan berlian (min 5.000)">
@@ -173,15 +168,12 @@ input:focus{
 Minimal 5.000 berlian untuk bonus.
 </div>
 
-<div class="note">
-Bonus dihitung mulai dari 5.000 berlian
-</div>
 </div>
 
 <div class="section-title">Bonus Insentif Host</div>
 
 <div class="card">
-<div class="table-wrapper">
+
 <table>
 <thead>
 <tr>
@@ -202,7 +194,6 @@ Bonus dihitung mulai dari 5.000 berlian
 <tr><td>8</td><td>1.600.000</td><td>2.560.000</td><td>1.280.000</td></tr>
 </tbody>
 </table>
-</div>
 
 <div class="input-center">
 <input type="text" id="insentifInput" placeholder="Masukkan berlian host">
@@ -239,11 +230,12 @@ document.getElementById("basicInput").addEventListener("input",function(e){
         return;
     }
 
-    document.getElementById("basicResult").innerHTML=
-    `Lv1: <span class="highlight">${formatRupiah(d*1.6)}</span> |
-     Lv2: <span class="highlight">${formatRupiah(d*2)}</span> |
-     Lv3: <span class="highlight">${formatRupiah(d*2.4)}</span> |
-     Lv4: <span class="highlight">${formatRupiah(d*3.36)}</span>`;
+    document.getElementById("basicResult").innerHTML=`
+        <div class="result-item">Level 1 <span class="highlight">${formatRupiah(d*1.6)}</span></div>
+        <div class="result-item">Level 2 <span class="highlight">${formatRupiah(d*2)}</span></div>
+        <div class="result-item">Level 3 <span class="highlight">${formatRupiah(d*2.4)}</span></div>
+        <div class="result-item">Level 4 <span class="highlight">${formatRupiah(d*3.36)}</span></div>
+    `;
 });
 
 document.getElementById("insentifInput").addEventListener("input",function(e){
@@ -268,10 +260,11 @@ document.getElementById("insentifInput").addEventListener("input",function(e){
 
     for(let i=0;i<data.length;i++){
         if(d>=data[i].min){
-            document.getElementById("insentifResult").innerHTML=
-            `Rank ${data[i].rank} |
-             Naik: ${formatRupiah(data[i].naik)} |
-             Durasi: ${formatRupiah(data[i].durasi)}`;
+            document.getElementById("insentifResult").innerHTML=`
+                <div class="result-item">Rank ${data[i].rank}</div>
+                <div class="result-item">Bonus Naik <span class="highlight">${formatRupiah(data[i].naik)}</span></div>
+                <div class="result-item">Bonus Durasi <span class="highlight">${formatRupiah(data[i].durasi)}</span></div>
+            `;
             break;
         }
     }
