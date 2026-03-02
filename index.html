@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tabel Bonus VINS GROUP 2026</title>
+<title>Tabel Bonus 2026</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -12,7 +12,7 @@
 
 body{
     font-family:'Poppins', sans-serif;
-    background: linear-gradient(135deg,#0f172a,#0b1120);
+    background: linear-gradient(135deg,#0f172a,#1e293b);
     color:#f1f5f9;
 }
 
@@ -25,27 +25,27 @@ body{
 
 h1{
     text-align:center;
-    font-size:36px;
+    font-size:32px;
     font-weight:700;
     background:linear-gradient(90deg,#facc15,#f59e0b);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    margin-bottom:30px;
+    margin-bottom:40px;
 }
 
 .section-title{
     text-align:center;
-    font-size:24px;
+    font-size:22px;
     font-weight:600;
-    margin:40px 0 20px;
+    margin:30px 0 20px;
     color:#facc15;
 }
 
 .card{
     background:rgba(255,255,255,0.05);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
     border:1px solid rgba(255,255,255,0.08);
-    border-radius:20px;
+    border-radius:18px;
     padding:25px;
     box-shadow:0 8px 30px rgba(0,0,0,0.4);
     margin-bottom:40px;
@@ -53,45 +53,75 @@ h1{
 
 .small-title{
     font-weight:600;
-    margin-bottom:15px;
+    margin-bottom:20px;
     color:#facc15;
 }
 
-.table-wrapper{
-    overflow-x:auto;
-}
-
+/* ===== TABLE DESKTOP ===== */
 table{
     width:100%;
     border-collapse:collapse;
-    min-width:700px;
 }
 
 th{
     background:linear-gradient(90deg,#facc15,#f59e0b);
     color:#0f172a;
     padding:12px;
-    font-weight:600;
     font-size:14px;
 }
 
 td{
     padding:12px;
     text-align:center;
-    font-size:14px;
     border-bottom:1px solid rgba(255,255,255,0.08);
+    font-size:14px;
 }
 
 tr:hover{
     background:rgba(255,255,255,0.04);
 }
 
-.note{
-    font-size:13px;
-    margin-top:15px;
-    opacity:0.8;
-    line-height:1.6;
+/* ===== MOBILE MODE ===== */
+@media(max-width:768px){
+
+    table, thead, tbody, th, td, tr{
+        display:block;
+        width:100%;
+    }
+
+    thead{
+        display:none;
+    }
+
+    tr{
+        margin-bottom:15px;
+        background:rgba(255,255,255,0.05);
+        padding:15px;
+        border-radius:12px;
+    }
+
+    td{
+        text-align:right;
+        padding-left:50%;
+        position:relative;
+        border:none;
+        padding-top:8px;
+        padding-bottom:8px;
+    }
+
+    td::before{
+        content:attr(data-label);
+        position:absolute;
+        left:15px;
+        width:45%;
+        text-align:left;
+        font-weight:600;
+        color:#facc15;
+    }
 }
+
+/* ===== INPUT ===== */
+.input-center{text-align:center;}
 
 input{
     margin-top:20px;
@@ -112,8 +142,6 @@ input:focus{
     border:1px solid #facc15;
 }
 
-.input-center{text-align:center;}
-
 .result{
     margin-top:20px;
     padding:15px;
@@ -128,10 +156,10 @@ input:focus{
     font-weight:600;
 }
 
-@media(max-width:768px){
-    h1{font-size:26px;}
-    .section-title{font-size:20px;}
-    th,td{font-size:12px;}
+.note{
+    font-size:13px;
+    margin-top:15px;
+    opacity:0.8;
 }
 </style>
 </head>
@@ -140,36 +168,67 @@ input:focus{
 
 <div class="container">
 
-<h1>TABEL BONUS VINS GROUP 2026</h1>
+<h1>TABEL BONUS 2026</h1>
 
 <div class="section-title">Bonus Basic</div>
 
 <div class="card">
-<div class="small-title">Contoh Simulasi (5.000 Diamond)</div>
 
-<div class="table-wrapper">
+<div class="small-title">Simulasi 5.000 Diamond</div>
+
 <table>
+<thead>
 <tr>
-<th rowspan="2">Simulasi Diamond</th>
-<th colspan="3">Pencapaian</th>
-<th rowspan="2">Rate</th>
-<th rowspan="2">Total Bonus</th>
-</tr>
-<tr>
+<th>Simulasi Diamond</th>
 <th>Level</th>
 <th>Valid Day</th>
 <th>Durasi</th>
+<th>Rate</th>
+<th>Total Bonus</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td data-label="Simulasi Diamond">5.000</td>
+<td data-label="Level">Level 1</td>
+<td data-label="Valid Day">15 Hari</td>
+<td data-label="Durasi">50 Jam</td>
+<td data-label="Rate">1,60</td>
+<td data-label="Total Bonus">Rp. 8.000</td>
 </tr>
 
-<tr><td>5.000</td><td>Level 1</td><td>15 Hari</td><td>50 Jam</td><td>1,60</td><td>Rp. 8.000</td></tr>
-<tr><td>5.000</td><td>Level 2</td><td>20 Hari</td><td>80 Jam</td><td>2,00</td><td>Rp. 10.000</td></tr>
-<tr><td>5.000</td><td>Level 3</td><td>22 Hari</td><td>100 Jam</td><td>2,40</td><td>Rp. 12.000</td></tr>
-<tr><td>5.000</td><td>Level 4</td><td>25 Hari</td><td>120 Jam</td><td>3,36</td><td>Rp. 16.800</td></tr>
+<tr>
+<td data-label="Simulasi Diamond">5.000</td>
+<td data-label="Level">Level 2</td>
+<td data-label="Valid Day">20 Hari</td>
+<td data-label="Durasi">80 Jam</td>
+<td data-label="Rate">2,00</td>
+<td data-label="Total Bonus">Rp. 10.000</td>
+</tr>
+
+<tr>
+<td data-label="Simulasi Diamond">5.000</td>
+<td data-label="Level">Level 3</td>
+<td data-label="Valid Day">22 Hari</td>
+<td data-label="Durasi">100 Jam</td>
+<td data-label="Rate">2,40</td>
+<td data-label="Total Bonus">Rp. 12.000</td>
+</tr>
+
+<tr>
+<td data-label="Simulasi Diamond">5.000</td>
+<td data-label="Level">Level 4</td>
+<td data-label="Valid Day">25 Hari</td>
+<td data-label="Durasi">120 Jam</td>
+<td data-label="Rate">3,36</td>
+<td data-label="Total Bonus">Rp. 16.800</td>
+</tr>
+</tbody>
 </table>
-</div>
 
 <div class="input-center">
-<input type="text" id="basicInput" placeholder="Masukkan jumlah berlian (min 5.000)">
+<input type="text" id="basicInput" placeholder="Masukkan berlian (min 5.000)">
 </div>
 
 <div class="result" id="basicResult">
@@ -177,34 +236,37 @@ Minimal 5.000 berlian untuk mendapatkan bonus.
 </div>
 
 <div class="note">
-• Bonus dihitung jika berlian ≥ 5.000<br>
+• Bonus dihitung mulai dari 5.000 berlian<br>
 • Rumus: Diamond × Rate
 </div>
+
 </div>
 
 <div class="section-title">Bonus Insentif Host</div>
 
 <div class="card">
 
-<div class="table-wrapper">
 <table>
+<thead>
 <tr>
 <th>Peringkat</th>
 <th>Rentang Berlian</th>
 <th>Naik Peringkat</th>
-<th>Durasi</th>
+<th>Bonus Durasi</th>
 </tr>
+</thead>
 
-<tr><td>1</td><td>50.000</td><td>Rp. 80.000</td><td>Rp. 40.000</td></tr>
-<tr><td>2</td><td>80.000</td><td>Rp. 128.000</td><td>Rp. 64.000</td></tr>
-<tr><td>3</td><td>150.000</td><td>Rp. 240.000</td><td>Rp. 120.000</td></tr>
-<tr><td>4</td><td>350.000</td><td>Rp. 560.000</td><td>Rp. 280.000</td></tr>
-<tr><td>5</td><td>500.000</td><td>Rp. 800.000</td><td>Rp. 400.000</td></tr>
-<tr><td>6</td><td>800.000</td><td>Rp. 1.280.000</td><td>Rp. 640.000</td></tr>
-<tr><td>7</td><td>1.200.000</td><td>Rp. 1.920.000</td><td>Rp. 960.000</td></tr>
-<tr><td>8</td><td>1.600.000</td><td>Rp. 2.560.000</td><td>Rp. 1.280.000</td></tr>
+<tbody>
+<tr><td data-label="Peringkat">1</td><td data-label="Rentang Berlian">50.000</td><td data-label="Naik Peringkat">Rp. 80.000</td><td data-label="Bonus Durasi">Rp. 40.000</td></tr>
+<tr><td data-label="Peringkat">2</td><td data-label="Rentang Berlian">80.000</td><td data-label="Naik Peringkat">Rp. 128.000</td><td data-label="Bonus Durasi">Rp. 64.000</td></tr>
+<tr><td data-label="Peringkat">3</td><td data-label="Rentang Berlian">150.000</td><td data-label="Naik Peringkat">Rp. 240.000</td><td data-label="Bonus Durasi">Rp. 120.000</td></tr>
+<tr><td data-label="Peringkat">4</td><td data-label="Rentang Berlian">350.000</td><td data-label="Naik Peringkat">Rp. 560.000</td><td data-label="Bonus Durasi">Rp. 280.000</td></tr>
+<tr><td data-label="Peringkat">5</td><td data-label="Rentang Berlian">500.000</td><td data-label="Naik Peringkat">Rp. 800.000</td><td data-label="Bonus Durasi">Rp. 400.000</td></tr>
+<tr><td data-label="Peringkat">6</td><td data-label="Rentang Berlian">800.000</td><td data-label="Naik Peringkat">Rp. 1.280.000</td><td data-label="Bonus Durasi">Rp. 640.000</td></tr>
+<tr><td data-label="Peringkat">7</td><td data-label="Rentang Berlian">1.200.000</td><td data-label="Naik Peringkat">Rp. 1.920.000</td><td data-label="Bonus Durasi">Rp. 960.000</td></tr>
+<tr><td data-label="Peringkat">8</td><td data-label="Rentang Berlian">1.600.000</td><td data-label="Naik Peringkat">Rp. 2.560.000</td><td data-label="Bonus Durasi">Rp. 1.280.000</td></tr>
+</tbody>
 </table>
-</div>
 
 <div class="input-center">
 <input type="text" id="insentifInput" placeholder="Masukkan berlian host">
@@ -219,10 +281,6 @@ Minimal 50.000 berlian untuk mendapatkan insentif.
 </div>
 
 <script>
-function formatRupiah(angka){
-    return "Rp. " + angka.toLocaleString("id-ID");
-}
-
 function formatNumberInput(value){
     return value.replace(/\D/g,"")
                 .replace(/\B(?=(\d{3})+(?!\d))/g,".");
@@ -232,36 +290,32 @@ function getNumericValue(value){
     return parseInt(value.replace(/\./g,"")) || 0;
 }
 
-// BONUS BASIC
-const basicInput=document.getElementById("basicInput");
+function formatRupiah(num){
+    return "Rp. " + num.toLocaleString("id-ID");
+}
 
-basicInput.addEventListener("input",function(e){
+document.getElementById("basicInput").addEventListener("input",function(e){
     e.target.value=formatNumberInput(e.target.value);
     let d=getNumericValue(e.target.value);
 
     if(d<5000){
-        document.getElementById("basicResult").innerHTML=
-        "❌ Berlian kurang dari 5.000 → Tidak mendapat bonus.";
+        document.getElementById("basicResult").innerHTML="❌ Berlian kurang dari 5.000 → Tidak mendapat bonus.";
         return;
     }
 
     document.getElementById("basicResult").innerHTML=
-    `Level 1: <span class="highlight">${formatRupiah(d*1.60)}</span><br>
-     Level 2: <span class="highlight">${formatRupiah(d*2.00)}</span><br>
-     Level 3: <span class="highlight">${formatRupiah(d*2.40)}</span><br>
+    `Level 1: <span class="highlight">${formatRupiah(d*1.6)}</span><br>
+     Level 2: <span class="highlight">${formatRupiah(d*2)}</span><br>
+     Level 3: <span class="highlight">${formatRupiah(d*2.4)}</span><br>
      Level 4: <span class="highlight">${formatRupiah(d*3.36)}</span>`;
 });
 
-// BONUS INSENTIF
-const insentifInput=document.getElementById("insentifInput");
-
-insentifInput.addEventListener("input",function(e){
+document.getElementById("insentifInput").addEventListener("input",function(e){
     e.target.value=formatNumberInput(e.target.value);
     let d=getNumericValue(e.target.value);
 
     if(d<50000){
-        document.getElementById("insentifResult").innerHTML=
-        "❌ Tidak memenuhi syarat insentif.";
+        document.getElementById("insentifResult").innerHTML="❌ Tidak memenuhi syarat insentif.";
         return;
     }
 
