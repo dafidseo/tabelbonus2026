@@ -25,7 +25,7 @@ body{
 
 h1{
     text-align:center;
-    font-size:32px;
+    font-size:30px;
     font-weight:700;
     background:linear-gradient(90deg,#facc15,#f59e0b);
     -webkit-background-clip:text;
@@ -43,84 +43,56 @@ h1{
 
 .card{
     background:rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     border:1px solid rgba(255,255,255,0.08);
     border-radius:18px;
     padding:25px;
-    box-shadow:0 8px 30px rgba(0,0,0,0.4);
+    box-shadow:0 8px 25px rgba(0,0,0,0.4);
     margin-bottom:40px;
 }
 
-.small-title{
-    font-weight:600;
-    margin-bottom:20px;
-    color:#facc15;
+/* ===== TABLE STYLE ===== */
+
+.table-wrapper{
+    width:100%;
 }
 
-/* ===== TABLE DESKTOP ===== */
 table{
     width:100%;
     border-collapse:collapse;
+    table-layout:fixed;
 }
 
 th{
     background:linear-gradient(90deg,#facc15,#f59e0b);
     color:#0f172a;
-    padding:12px;
-    font-size:14px;
+    padding:10px;
+    font-size:13px;
 }
 
 td{
-    padding:12px;
+    padding:10px;
     text-align:center;
     border-bottom:1px solid rgba(255,255,255,0.08);
-    font-size:14px;
+    font-size:13px;
+    word-wrap:break-word;
 }
 
 tr:hover{
-    background:rgba(255,255,255,0.04);
+    background:rgba(255,255,255,0.05);
 }
 
-/* ===== MOBILE MODE ===== */
+/* ===== MOBILE FIX (Tetap Tabel Normal) ===== */
+
 @media(max-width:768px){
-
-    table, thead, tbody, th, td, tr{
-        display:block;
-        width:100%;
-    }
-
-    thead{
-        display:none;
-    }
-
-    tr{
-        margin-bottom:15px;
-        background:rgba(255,255,255,0.05);
-        padding:15px;
-        border-radius:12px;
-    }
-
-    td{
-        text-align:right;
-        padding-left:50%;
-        position:relative;
-        border:none;
-        padding-top:8px;
-        padding-bottom:8px;
-    }
-
-    td::before{
-        content:attr(data-label);
-        position:absolute;
-        left:15px;
-        width:45%;
-        text-align:left;
-        font-weight:600;
-        color:#facc15;
+    th, td{
+        font-size:11px;
+        padding:6px;
     }
 }
 
 /* ===== INPUT ===== */
+
 .input-center{text-align:center;}
 
 input{
@@ -174,8 +146,7 @@ input:focus{
 
 <div class="card">
 
-<div class="small-title">Simulasi 5.000 Diamond</div>
-
+<div class="table-wrapper">
 <table>
 <thead>
 <tr>
@@ -189,43 +160,13 @@ input:focus{
 </thead>
 
 <tbody>
-<tr>
-<td data-label="Simulasi Diamond">5.000</td>
-<td data-label="Level">Level 1</td>
-<td data-label="Valid Day">15 Hari</td>
-<td data-label="Durasi">50 Jam</td>
-<td data-label="Rate">1,60</td>
-<td data-label="Total Bonus">Rp. 8.000</td>
-</tr>
-
-<tr>
-<td data-label="Simulasi Diamond">5.000</td>
-<td data-label="Level">Level 2</td>
-<td data-label="Valid Day">20 Hari</td>
-<td data-label="Durasi">80 Jam</td>
-<td data-label="Rate">2,00</td>
-<td data-label="Total Bonus">Rp. 10.000</td>
-</tr>
-
-<tr>
-<td data-label="Simulasi Diamond">5.000</td>
-<td data-label="Level">Level 3</td>
-<td data-label="Valid Day">22 Hari</td>
-<td data-label="Durasi">100 Jam</td>
-<td data-label="Rate">2,40</td>
-<td data-label="Total Bonus">Rp. 12.000</td>
-</tr>
-
-<tr>
-<td data-label="Simulasi Diamond">5.000</td>
-<td data-label="Level">Level 4</td>
-<td data-label="Valid Day">25 Hari</td>
-<td data-label="Durasi">120 Jam</td>
-<td data-label="Rate">3,36</td>
-<td data-label="Total Bonus">Rp. 16.800</td>
-</tr>
+<tr><td>5.000</td><td>Level 1</td><td>15 Hari</td><td>50 Jam</td><td>1,60</td><td>Rp. 8.000</td></tr>
+<tr><td>5.000</td><td>Level 2</td><td>20 Hari</td><td>80 Jam</td><td>2,00</td><td>Rp. 10.000</td></tr>
+<tr><td>5.000</td><td>Level 3</td><td>22 Hari</td><td>100 Jam</td><td>2,40</td><td>Rp. 12.000</td></tr>
+<tr><td>5.000</td><td>Level 4</td><td>25 Hari</td><td>120 Jam</td><td>3,36</td><td>Rp. 16.800</td></tr>
 </tbody>
 </table>
+</div>
 
 <div class="input-center">
 <input type="text" id="basicInput" placeholder="Masukkan berlian (min 5.000)">
@@ -246,6 +187,7 @@ Minimal 5.000 berlian untuk mendapatkan bonus.
 
 <div class="card">
 
+<div class="table-wrapper">
 <table>
 <thead>
 <tr>
@@ -257,16 +199,17 @@ Minimal 5.000 berlian untuk mendapatkan bonus.
 </thead>
 
 <tbody>
-<tr><td data-label="Peringkat">1</td><td data-label="Rentang Berlian">50.000</td><td data-label="Naik Peringkat">Rp. 80.000</td><td data-label="Bonus Durasi">Rp. 40.000</td></tr>
-<tr><td data-label="Peringkat">2</td><td data-label="Rentang Berlian">80.000</td><td data-label="Naik Peringkat">Rp. 128.000</td><td data-label="Bonus Durasi">Rp. 64.000</td></tr>
-<tr><td data-label="Peringkat">3</td><td data-label="Rentang Berlian">150.000</td><td data-label="Naik Peringkat">Rp. 240.000</td><td data-label="Bonus Durasi">Rp. 120.000</td></tr>
-<tr><td data-label="Peringkat">4</td><td data-label="Rentang Berlian">350.000</td><td data-label="Naik Peringkat">Rp. 560.000</td><td data-label="Bonus Durasi">Rp. 280.000</td></tr>
-<tr><td data-label="Peringkat">5</td><td data-label="Rentang Berlian">500.000</td><td data-label="Naik Peringkat">Rp. 800.000</td><td data-label="Bonus Durasi">Rp. 400.000</td></tr>
-<tr><td data-label="Peringkat">6</td><td data-label="Rentang Berlian">800.000</td><td data-label="Naik Peringkat">Rp. 1.280.000</td><td data-label="Bonus Durasi">Rp. 640.000</td></tr>
-<tr><td data-label="Peringkat">7</td><td data-label="Rentang Berlian">1.200.000</td><td data-label="Naik Peringkat">Rp. 1.920.000</td><td data-label="Bonus Durasi">Rp. 960.000</td></tr>
-<tr><td data-label="Peringkat">8</td><td data-label="Rentang Berlian">1.600.000</td><td data-label="Naik Peringkat">Rp. 2.560.000</td><td data-label="Bonus Durasi">Rp. 1.280.000</td></tr>
+<tr><td>1</td><td>50.000</td><td>Rp. 80.000</td><td>Rp. 40.000</td></tr>
+<tr><td>2</td><td>80.000</td><td>Rp. 128.000</td><td>Rp. 64.000</td></tr>
+<tr><td>3</td><td>150.000</td><td>Rp. 240.000</td><td>Rp. 120.000</td></tr>
+<tr><td>4</td><td>350.000</td><td>Rp. 560.000</td><td>Rp. 280.000</td></tr>
+<tr><td>5</td><td>500.000</td><td>Rp. 800.000</td><td>Rp. 400.000</td></tr>
+<tr><td>6</td><td>800.000</td><td>Rp. 1.280.000</td><td>Rp. 640.000</td></tr>
+<tr><td>7</td><td>1.200.000</td><td>Rp. 1.920.000</td><td>Rp. 960.000</td></tr>
+<tr><td>8</td><td>1.600.000</td><td>Rp. 2.560.000</td><td>Rp. 1.280.000</td></tr>
 </tbody>
 </table>
+</div>
 
 <div class="input-center">
 <input type="text" id="insentifInput" placeholder="Masukkan berlian host">
