@@ -2,189 +2,274 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 <title>Tabel Bonus VINS GROUP 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-    font-family:'Poppins', sans-serif;
-    background: linear-gradient(135deg,#0f172a,#1e293b);
-    color:#f8fafc;
-    display:flex;
-    flex-direction:column;
-    min-height:100vh;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.container{
-    width:95%;
-    max-width:1100px;
-    margin:auto;
-    padding:30px 0;
-    flex:1;
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-h1{
-    text-align:center;
-    font-size:clamp(20px,4vw,30px);
-    font-weight:700;
-    margin-bottom:35px;
-    background:linear-gradient(90deg,#facc15,#f59e0b);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 12px;
+    flex: 1;
 }
 
-.section-title{
-    text-align:center;
-    font-size:clamp(16px,3vw,22px);
-    font-weight:600;
-    margin:30px 0 15px;
-    color:#facc15;
+h1 {
+    text-align: center;
+    font-size: clamp(20px, 6vw, 30px);
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.3;
+    background: linear-gradient(90deg, #1915fa, #0b36f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.card{
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:16px;
-    padding:20px;
-    margin-bottom:35px;
+.section-title {
+    text-align: center;
+    font-size: clamp(16px, 4.5vw, 22px);
+    font-weight: 600;
+    margin: 25px 0 15px;
+    color: #ffffff;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
+.card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 16px 12px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(2px);
 }
 
-th{
-    background:linear-gradient(90deg,#facc15,#f59e0b);
-    color:#0f172a;
-    padding:10px 6px;
-    font-size:clamp(11px,2.5vw,14px);
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: clamp(11px, 3vw, 14px);
+    table-layout: auto;
+    word-break: break-word;
 }
 
-td{
-    padding:8px 6px;
-    text-align:center;
-    font-size:clamp(10px,2.3vw,13px);
-    border-bottom:1px solid rgba(255,255,255,0.08);
+th {
+    background: linear-gradient(90deg, #3715fa, #0b0ff5);
+    color: #ffffff;
+    padding: 10px 4px;
+    font-weight: 600;
+    font-size: clamp(10px, 2.5vw, 13px);
+    text-align: center;
+    white-space: nowrap;
 }
 
-tr:hover{
-    background:rgba(255,255,255,0.05);
+td {
+    padding: 10px 4px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-weight: 400;
 }
 
-.input-center{
-    text-align:center;
-    margin-top:20px;
+/* formatting khusus untuk angka di tabel agar rapi */
+td:first-child, 
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4),
+td:nth-child(5) {
+    font-family: 'Poppins', monospace;
+    font-weight: 500;
 }
 
-input{
-    width:100%;
-    max-width:320px;
-    padding:10px;
-    border-radius:10px;
-    border:none;
-    background:#1e293b;
-    color:white;
-    text-align:center;
-    font-size:14px;
-    border:1px solid rgba(255,255,255,0.1);
+/* kolom total, naik peringkat, mempertahankan dengan Rp */
+td:last-child,
+tbody tr td:nth-child(6),
+.insentif-table td:nth-child(3),
+.insentif-table td:nth-child(4) {
+    font-weight: 600;
+    color: #facc15;
+    white-space: nowrap;
 }
 
-input:focus{
-    border:1px solid #facc15;
-    outline:none;
+tr:hover {
+    background: rgba(255, 255, 255, 0.05);
 }
 
-.result{
-    margin-top:18px;
-    padding:14px;
-    border-radius:12px;
-    background:rgba(250,204,21,0.08);
-    font-size:14px;
+/* input */
+.input-center {
+    text-align: center;
+    margin: 20px 0 15px;
 }
 
-.result-item{
-    display:flex;
-    justify-content:space-between;
-    padding:6px 0;
-    border-bottom:1px solid rgba(255,255,255,0.06);
+input {
+    width: 100%;
+    max-width: 320px;
+    padding: 12px 16px;
+    border-radius: 40px;
+    border: none;
+    background: #1e293b;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Poppins', sans-serif;
 }
 
-.result-item:last-child{
-    border-bottom:none;
+input:focus {
+    border: 1px solid #facc15;
+    outline: none;
+    background: #0f172a;
 }
 
-.highlight{
-    color:#facc15;
-    font-weight:600;
-}
-
-/* ===== DESKRIPSI BONUS (TIDAK KUNING) ===== */
-.bonus-desc {
-    background: rgba(6, 78, 59, 0.25);        /* hijau tua gelap */
-    border-left: 4px solid #2dd4bf;            /* aksen teal */
-    padding: 16px 18px;
-    border-radius: 12px;
-    margin: 20px 0 10px 0;
+/* result card */
+.result {
+    margin-top: 18px;
+    padding: 14px;
+    border-radius: 18px;
+    background: rgba(250, 204, 21, 0.08);
     font-size: 14px;
-    line-height: 1.7;
+    border: 1px solid rgba(250,204,21,0.15);
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: clamp(12px, 3.5vw, 14px);
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.highlight {
+    color: #facc15;
+    font-weight: 600;
+}
+
+/* deskripsi bonus (tanpa latar kuning) */
+.bonus-desc {
+    background: rgba(6, 78, 59, 0.25);
+    border-left: 4px solid #2dd4bf;
+    padding: 16px 14px;
+    border-radius: 16px;
+    margin: 20px 0 8px 0;
+    font-size: 13.5px;
+    line-height: 1.6;
     color: #e2e8f0;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .bonus-desc.insentif {
-    background: rgba(25, 55, 90, 0.35);         /* biru tua gelap */
-    border-left-color: #38bdf8;                 /* aksen biru */
+    background: rgba(25, 55, 90, 0.35);
+    border-left-color: #38bdf8;
 }
 
 .bonus-desc p {
     margin: 8px 0;
     display: flex;
-    gap: 10px;
+    gap: 8px;
     align-items: flex-start;
 }
 
 .bonus-desc .number {
     font-weight: 700;
-    color: #94e2d0;                             /* hijau mint untuk angka */
-    min-width: 28px;
+    color: #94e2d0;
+    min-width: 24px;
     display: inline-block;
 }
 
 .bonus-desc.insentif .number {
-    color: #7ab7ef;                              /* biru muda untuk angka */
+    color: #7ab7ef;
 }
 
-.bonus-desc i {
-    color: #cbd5e1;
-    font-style: italic;
+/* ketentuan tambahan */
+.extra-terms {
+    margin-top: 25px;
+    padding: 16px 14px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 13px;
 }
 
-/* footer */
-footer{
-    text-align:center;
-    padding:18px 10px;
-    background:#0f172a;
-    border-top:1px solid rgba(255,255,255,0.08);
-    font-size:13px;
-    color:#94a3b8;
+.extra-terms p {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    color: #e2e8f0;
 }
 
-footer span{
-    color:#facc15;
-    font-weight:600;
+.extra-terms span:first-child {
+    color: #94a3b8;
+    font-weight: 700;
+    min-width: 20px;
 }
 
-/* responsive untuk teks deskripsi */
-@media(max-width:600px){
+footer {
+    text-align: center;
+    padding: 18px 12px;
+    background: #0f172a;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+footer span {
+    color: #facc15;
+    font-weight: 600;
+}
+
+/* responsive khusus hp */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px 8px;
+    }
+    .card {
+        padding: 12px 8px;
+    }
+    th {
+        font-size: 9px;
+        padding: 8px 2px;
+    }
+    td {
+        font-size: 9px;
+        padding: 8px 2px;
+    }
     .bonus-desc p {
         flex-direction: column;
-        gap: 3px;
+        gap: 2px;
     }
     .bonus-desc .number {
         min-width: auto;
+    }
+    .extra-terms p {
+        gap: 6px;
+    }
+}
+
+/* untuk layar sangat kecil 360px */
+@media (max-width: 360px) {
+    th, td {
+        font-size: 8px;
+        padding: 6px 1px;
+    }
+    td:last-child, 
+    .insentif-table td:nth-child(3), 
+    .insentif-table td:nth-child(4) {
+        font-size: 8px;
     }
 }
 </style>
@@ -220,7 +305,7 @@ footer span{
 </table>
 
 <div class="input-center">
-<input type="text" id="basicInput" placeholder="Masukkan berlian (min 5.000)">
+<input type="text" id="basicInput" placeholder="Masukkan berlian (min 5.000)" inputmode="numeric">
 </div>
 
 <div class="result" id="basicResult">
@@ -240,7 +325,8 @@ Minimal 5.000 berlian untuk bonus.
 
 <div class="card">
 
-<table>
+<!-- Tabel Insentif dengan angka rapi + Rp -->
+<table class="insentif-table">
 <thead>
 <tr>
 <th>Peringkat Kreator</th>
@@ -250,26 +336,26 @@ Minimal 5.000 berlian untuk bonus.
 </tr>
 </thead>
 <tbody>
-<tr><td>1</td><td>50.000</td><td>80.000</td><td>40.000</td></tr>
-<tr><td>2</td><td>80.000</td><td>128.000</td><td>64.000</td></tr>
-<tr><td>3</td><td>150.000</td><td>240.000</td><td>120.000</td></tr>
-<tr><td>4</td><td>350.000</td><td>560.000</td><td>280.000</td></tr>
-<tr><td>5</td><td>500.000</td><td>800.000</td><td>400.000</td></tr>
-<tr><td>6</td><td>800.000</td><td>1.280.000</td><td>640.000</td></tr>
-<tr><td>7</td><td>1.200.000</td><td>1.920.000</td><td>960.000</td></tr>
-<tr><td>8</td><td>1.600.000</td><td>2.560.000</td><td>1.280.000</td></tr>
+<tr><td>1</td><td>50.000</td><td>Rp 80.000</td><td>Rp 40.000</td></tr>
+<tr><td>2</td><td>80.000</td><td>Rp 128.000</td><td>Rp 64.000</td></tr>
+<tr><td>3</td><td>150.000</td><td>Rp 240.000</td><td>Rp 120.000</td></tr>
+<tr><td>4</td><td>350.000</td><td>Rp 560.000</td><td>Rp 280.000</td></tr>
+<tr><td>5</td><td>500.000</td><td>Rp 800.000</td><td>Rp 400.000</td></tr>
+<tr><td>6</td><td>800.000</td><td>Rp 1.280.000</td><td>Rp 640.000</td></tr>
+<tr><td>7</td><td>1.200.000</td><td>Rp 1.920.000</td><td>Rp 960.000</td></tr>
+<tr><td>8</td><td>1.600.000</td><td>Rp 2.560.000</td><td>Rp 1.280.000</td></tr>
 </tbody>
 </table>
 
 <div class="input-center">
-<input type="text" id="insentifInput" placeholder="Masukkan berlian host">
+<input type="text" id="insentifInput" placeholder="Masukkan berlian host" inputmode="numeric">
 </div>
 
 <div class="result" id="insentifResult">
 Minimal 50.000 berlian untuk insentif.
 </div>
 
-<!-- TEKS BONUS INSENTIF (tidak kuning, aksen biru) -->
+<!-- TEKS BONUS INSENTIF (aksen biru) -->
 <div class="bonus-desc insentif">
     <p><span class="number">1.</span> Bonus Insentif akan dihitung jika jumlah pencapaian diamond minimal > 50.000 💎</p>
     <p><span class="number">2.</span> Bonus Insentif akan dihitung minimal pencapaian Validday 15 Hari dan Durasi 50 Jam.</p>
@@ -278,11 +364,11 @@ Minimal 50.000 berlian untuk insentif.
     <p><span class="number">5.</span> Bonus Insentif tidak akan dihitung jika kreator tidak bisa Naik Peringkat/ Mempertahankan pencapaian Rentang Berlian di bulan sebelumnya pada tabel Peringkat.</p>
 </div>
 
-<!-- KETENTUAN TAMBAHAN DI LUAR KARTU (masih dalam card) TAPI AGAR JELAS PISAH, KITA BUAT DIV DENGAN STYLE SAMA -->
-<div style="margin-top: 25px; padding: 16px 18px; background: rgba(0,0,0,0.3); border-radius: 14px; border: 1px solid rgba(255,255,255,0.05);">
-    <p style="display:flex; gap:8px; margin:8px 0;"><span style="color:#94a3b8; font-weight:700;">1.</span> <span style="color:#e2e8f0;">Bonus Basic dan Bonus Insentif dihitung sesuai syarat & Ketentuan.</span></p>
-    <p style="display:flex; gap:8px; margin:8px 0;"><span style="color:#94a3b8; font-weight:700;">2.</span> <span style="color:#e2e8f0;">Diluar Skema Bonus kreator tetap bisa mendapatkan bonus tambahan jika bisa memenangkan Event / Campaign yang selalu dibuat oleh VMF agency tiap bulannya.</span></p>
-    <p style="display:flex; gap:8px; margin:8px 0;"><span style="color:#94a3b8; font-weight:700;">3.</span> <span style="color:#e2e8f0;">Bonus + Reward event VMF Agency akan dikirimkan setiap tanggal 5 bulan depannya ke Rekening Bank, DANA, OVO, GO-Pay, dll.</span></p>
+<!-- KETENTUAN TAMBAHAN -->
+<div class="extra-terms">
+    <p><span>1.</span> <span>Bonus Basic dan Bonus Insentif dihitung sesuai syarat & Ketentuan.</span></p>
+    <p><span>2.</span> <span>Diluar Skema Bonus kreator tetap bisa mendapatkan bonus tambahan jika bisa memenangkan Event / Campaign yang selalu dibuat oleh VMF agency tiap bulannya.</span></p>
+    <p><span>3.</span> <span>Bonus + Reward event VMF Agency akan dikirimkan setiap tanggal 5 bulan depannya ke Rekening Bank, DANA, OVO, GO-Pay, dll.</span></p>
 </div>
 
 </div> <!-- end card insentif -->
@@ -295,64 +381,70 @@ Minimal 50.000 berlian untuk insentif.
 
 <script>
 function formatNumberInput(value){
-    return value.replace(/\D/g,"")
-                .replace(/\B(?=(\d{3})+(?!\d))/g,".");
+    // hapus semua karakter non-digit, lalu format titik ribuan
+    let cleaned = value.replace(/\D/g, "");
+    return cleaned.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 function getNumericValue(value){
-    return parseInt(value.replace(/\./g,"")) || 0;
+    return parseInt(value.replace(/\./g, "")) || 0;
 }
 
 function formatRupiah(num){
-    return "Rp " + num.toLocaleString("id-ID");
+    return "Rp " + num.toLocaleString("id-ID").replace(/,/g, ".");
 }
 
-document.getElementById("basicInput").addEventListener("input",function(e){
-    e.target.value=formatNumberInput(e.target.value);
-    let d=getNumericValue(e.target.value);
+document.getElementById("basicInput").addEventListener("input", function(e){
+    e.target.value = formatNumberInput(e.target.value);
+    let d = getNumericValue(e.target.value);
 
-    if(d<5000){
-        document.getElementById("basicResult").innerHTML="Tidak mendapat bonus.";
+    if(d < 5000){
+        document.getElementById("basicResult").innerHTML = "Tidak mendapat bonus.";
         return;
     }
 
-    document.getElementById("basicResult").innerHTML=`
-        <div class="result-item">Level 1 <span class="highlight">${formatRupiah(d*1.6)}</span></div>
-        <div class="result-item">Level 2 <span class="highlight">${formatRupiah(d*2)}</span></div>
-        <div class="result-item">Level 3 <span class="highlight">${formatRupiah(d*2.4)}</span></div>
-        <div class="result-item">Level 4 <span class="highlight">${formatRupiah(d*3.36)}</span></div>
+    document.getElementById("basicResult").innerHTML = `
+        <div class="result-item">Level 1 <span class="highlight">${formatRupiah(Math.round(d * 1.6))}</span></div>
+        <div class="result-item">Level 2 <span class="highlight">${formatRupiah(Math.round(d * 2))}</span></div>
+        <div class="result-item">Level 3 <span class="highlight">${formatRupiah(Math.round(d * 2.4))}</span></div>
+        <div class="result-item">Level 4 <span class="highlight">${formatRupiah(Math.round(d * 3.36))}</span></div>
     `;
 });
 
-document.getElementById("insentifInput").addEventListener("input",function(e){
-    e.target.value=formatNumberInput(e.target.value);
-    let d=getNumericValue(e.target.value);
+document.getElementById("insentifInput").addEventListener("input", function(e){
+    e.target.value = formatNumberInput(e.target.value);
+    let d = getNumericValue(e.target.value);
 
-    if(d<50000){
-        document.getElementById("insentifResult").innerHTML="Tidak memenuhi syarat.";
+    if(d < 50000){
+        document.getElementById("insentifResult").innerHTML = "Tidak memenuhi syarat.";
         return;
     }
 
-    let data=[
-        {rank:8,min:1600000,naik:2560000,durasi:1280000},
-        {rank:7,min:1200000,naik:1920000,durasi:960000},
-        {rank:6,min:800000,naik:1280000,durasi:640000},
-        {rank:5,min:500000,naik:800000,durasi:400000},
-        {rank:4,min:350000,naik:560000,durasi:280000},
-        {rank:3,min:150000,naik:240000,durasi:120000},
-        {rank:2,min:80000,naik:128000,durasi:64000},
-        {rank:1,min:50000,naik:80000,durasi:40000}
+    let data = [
+        {rank:8, min:1600000, naik:2560000, durasi:1280000},
+        {rank:7, min:1200000, naik:1920000, durasi:960000},
+        {rank:6, min:800000, naik:1280000, durasi:640000},
+        {rank:5, min:500000, naik:800000, durasi:400000},
+        {rank:4, min:350000, naik:560000, durasi:280000},
+        {rank:3, min:150000, naik:240000, durasi:120000},
+        {rank:2, min:80000, naik:128000, durasi:64000},
+        {rank:1, min:50000, naik:80000, durasi:40000}
     ];
 
-    for(let i=0;i<data.length;i++){
-        if(d>=data[i].min){
-            document.getElementById("insentifResult").innerHTML=`
+    let found = false;
+    for(let i = 0; i < data.length; i++){
+        if(d >= data[i].min){
+            document.getElementById("insentifResult").innerHTML = `
                 <div class="result-item">Rank ${data[i].rank}</div>
                 <div class="result-item">Bonus Naik <span class="highlight">${formatRupiah(data[i].naik)}</span></div>
-                <div class="result-item">Bonus Durasi <span class="highlight">${formatRupiah(data[i].durasi)}</span></div>
+                <div class="result-item">Bonus Mempertahankan <span class="highlight">${formatRupiah(data[i].durasi)}</span></div>
             `;
+            found = true;
             break;
         }
+    }
+    if (!found) {
+        document.getElementById("insentifResult").innerHTML = "Tidak ada peringkat yang cocok.";
     }
 });
 </script>
