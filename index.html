@@ -25,15 +25,15 @@ body {
     width: 100%;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 20px 12px;
+    padding: 15px 10px;
     flex: 1;
 }
 
 h1 {
     text-align: center;
-    font-size: clamp(20px, 6vw, 30px);
+    font-size: clamp(18px, 5vw, 28px);
     font-weight: 700;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     line-height: 1.3;
     background: linear-gradient(90deg, #1915fa, #0b36f5);
     -webkit-background-clip: text;
@@ -42,86 +42,99 @@ h1 {
 
 .section-title {
     text-align: center;
-    font-size: clamp(16px, 4.5vw, 22px);
+    font-size: clamp(15px, 4vw, 20px);
     font-weight: 600;
-    margin: 25px 0 15px;
+    margin: 20px 0 12px;
     color: #ffffff;
 }
 
 .card {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 16px 12px;
-    margin-bottom: 30px;
-    backdrop-filter: blur(2px);
+    border-radius: 16px;
+    padding: 12px 8px;
+    margin-bottom: 25px;
+}
+
+/* ===== PERBAIKAN TABEL UNTUK HP ===== */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -2px;
+    padding: 0 2px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: clamp(11px, 3vw, 14px);
-    table-layout: auto;
-    word-break: break-word;
+    min-width: 500px; /* Memastikan tabel bisa di-scroll horizontal di HP kecil */
+    font-size: 12px;
+}
+
+/* Untuk tabel insentif yang lebih pendek */
+.insentif-table {
+    min-width: 400px;
 }
 
 th {
     background: linear-gradient(90deg, #3715fa, #0b0ff5);
     color: #ffffff;
-    padding: 10px 4px;
+    padding: 10px 6px;
     font-weight: 600;
-    font-size: clamp(10px, 2.5vw, 13px);
+    font-size: 11px;
     text-align: center;
     white-space: nowrap;
 }
 
 td {
-    padding: 10px 4px;
+    padding: 8px 6px;
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     font-weight: 400;
+    white-space: nowrap;
 }
 
-/* formatting khusus untuk angka di tabel agar rapi */
-td:first-child, 
-td:nth-child(2),
-td:nth-child(3),
-td:nth-child(4),
-td:nth-child(5) {
+/* Format angka yang benar dengan titik dan koma */
+.angka-desimal {
     font-family: 'Poppins', monospace;
+}
+
+/* Kolom Rate (pake koma) */
+td:nth-child(5) {
+    font-family: monospace;
     font-weight: 500;
 }
 
-/* kolom total, naik peringkat, mempertahankan dengan Rp */
+/* Kolom Total, Naik Peringkat, Mempertahankan (pake Rp dan titik) */
 td:last-child,
-tbody tr td:nth-child(6),
 .insentif-table td:nth-child(3),
 .insentif-table td:nth-child(4) {
     font-weight: 600;
     color: #facc15;
-    white-space: nowrap;
+    font-family: monospace;
 }
 
 tr:hover {
     background: rgba(255, 255, 255, 0.05);
 }
 
-/* input */
+/* Input */
 .input-center {
     text-align: center;
-    margin: 20px 0 15px;
+    margin: 15px 0 12px;
 }
 
 input {
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
     padding: 12px 16px;
     border-radius: 40px;
     border: none;
     background: #1e293b;
     color: white;
     text-align: center;
-    font-size: 15px;
+    font-size: 14px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     font-family: 'Poppins', sans-serif;
 }
@@ -132,22 +145,22 @@ input:focus {
     background: #0f172a;
 }
 
-/* result card */
+/* Result card */
 .result {
-    margin-top: 18px;
-    padding: 14px;
-    border-radius: 18px;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 16px;
     background: rgba(250, 204, 21, 0.08);
-    font-size: 14px;
+    font-size: 13px;
     border: 1px solid rgba(250,204,21,0.15);
 }
 
 .result-item {
     display: flex;
     justify-content: space-between;
-    padding: 8px 0;
+    padding: 6px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    font-size: clamp(12px, 3.5vw, 14px);
+    font-size: clamp(11px, 3vw, 13px);
 }
 
 .result-item:last-child {
@@ -157,19 +170,19 @@ input:focus {
 .highlight {
     color: #facc15;
     font-weight: 600;
+    font-family: monospace;
 }
 
-/* deskripsi bonus (tanpa latar kuning) */
+/* Deskripsi bonus */
 .bonus-desc {
     background: rgba(6, 78, 59, 0.25);
     border-left: 4px solid #2dd4bf;
-    padding: 16px 14px;
-    border-radius: 16px;
-    margin: 20px 0 8px 0;
-    font-size: 13.5px;
-    line-height: 1.6;
+    padding: 14px 12px;
+    border-radius: 14px;
+    margin: 15px 0 5px 0;
+    font-size: 12.5px;
+    line-height: 1.5;
     color: #e2e8f0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .bonus-desc.insentif {
@@ -178,7 +191,7 @@ input:focus {
 }
 
 .bonus-desc p {
-    margin: 8px 0;
+    margin: 6px 0;
     display: flex;
     gap: 8px;
     align-items: flex-start;
@@ -187,7 +200,7 @@ input:focus {
 .bonus-desc .number {
     font-weight: 700;
     color: #94e2d0;
-    min-width: 24px;
+    min-width: 22px;
     display: inline-block;
 }
 
@@ -195,35 +208,35 @@ input:focus {
     color: #7ab7ef;
 }
 
-/* ketentuan tambahan */
+/* Extra terms */
 .extra-terms {
-    margin-top: 25px;
-    padding: 16px 14px;
+    margin-top: 20px;
+    padding: 14px 12px;
     background: rgba(0, 0, 0, 0.3);
-    border-radius: 18px;
+    border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .extra-terms p {
     display: flex;
-    gap: 10px;
-    margin: 10px 0;
+    gap: 8px;
+    margin: 8px 0;
     color: #e2e8f0;
 }
 
 .extra-terms span:first-child {
     color: #94a3b8;
     font-weight: 700;
-    min-width: 20px;
+    min-width: 18px;
 }
 
 footer {
     text-align: center;
-    padding: 18px 12px;
+    padding: 15px 10px;
     background: #0f172a;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 13px;
+    font-size: 12px;
     color: #94a3b8;
 }
 
@@ -232,44 +245,56 @@ footer span {
     font-weight: 600;
 }
 
-/* responsive khusus hp */
-@media (max-width: 480px) {
+/* Responsive untuk HP */
+@media (max-width: 600px) {
     .container {
-        padding: 15px 8px;
+        padding: 10px 8px;
     }
+    
     .card {
-        padding: 12px 8px;
+        padding: 10px 6px;
     }
+    
     th {
-        font-size: 9px;
-        padding: 8px 2px;
+        font-size: 10px;
+        padding: 8px 4px;
     }
+    
     td {
-        font-size: 9px;
-        padding: 8px 2px;
+        font-size: 10px;
+        padding: 6px 4px;
     }
+    
     .bonus-desc p {
-        flex-direction: column;
-        gap: 2px;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
+    
     .bonus-desc .number {
-        min-width: auto;
-    }
-    .extra-terms p {
-        gap: 6px;
+        min-width: 20px;
     }
 }
 
-/* untuk layar sangat kecil 360px */
-@media (max-width: 360px) {
-    th, td {
-        font-size: 8px;
-        padding: 6px 1px;
+/* Untuk HP sangat kecil */
+@media (max-width: 380px) {
+    th {
+        font-size: 9px;
+        padding: 6px 3px;
     }
-    td:last-child, 
-    .insentif-table td:nth-child(3), 
-    .insentif-table td:nth-child(4) {
-        font-size: 8px;
+    
+    td {
+        font-size: 9px;
+        padding: 5px 3px;
+    }
+    
+    .bonus-desc {
+        font-size: 11px;
+        padding: 12px 8px;
+    }
+    
+    .extra-terms {
+        font-size: 11px;
+        padding: 12px 8px;
     }
 }
 </style>
@@ -284,96 +309,164 @@ footer span {
 <div class="section-title">💰 Bonus Basic</div>
 
 <div class="card">
+    <!-- Tambahkan wrapper untuk scroll horizontal -->
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Diamond</th>
+                    <th>Level</th>
+                    <th>Valid Day</th>
+                    <th>Durasi</th>
+                    <th>Rate</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>5.000</td>
+                    <td>Lv 1</td>
+                    <td>15H</td>
+                    <td>50J</td>
+                    <td>1,60</td>
+                    <td>Rp 8.000</td>
+                </tr>
+                <tr>
+                    <td>5.000</td>
+                    <td>Lv 2</td>
+                    <td>20H</td>
+                    <td>80J</td>
+                    <td>2,00</td>
+                    <td>Rp 10.000</td>
+                </tr>
+                <tr>
+                    <td>5.000</td>
+                    <td>Lv 3</td>
+                    <td>22H</td>
+                    <td>100J</td>
+                    <td>2,40</td>
+                    <td>Rp 12.000</td>
+                </tr>
+                <tr>
+                    <td>5.000</td>
+                    <td>Lv 4</td>
+                    <td>25H</td>
+                    <td>120J</td>
+                    <td>3,36</td>
+                    <td>Rp 16.800</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<table>
-<thead>
-<tr>
-<th>Diamond</th>
-<th>Level</th>
-<th>Valid Day</th>
-<th>Durasi</th>
-<th>Rate</th>
-<th>Total</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>5.000</td><td>Lv 1</td><td>15H</td><td>50J</td><td>1,60</td><td>Rp 8.000</td></tr>
-<tr><td>5.000</td><td>Lv 2</td><td>20H</td><td>80J</td><td>2,00</td><td>Rp 10.000</td></tr>
-<tr><td>5.000</td><td>Lv 3</td><td>22H</td><td>100J</td><td>2,40</td><td>Rp 12.000</td></tr>
-<tr><td>5.000</td><td>Lv 4</td><td>25H</td><td>120J</td><td>3,36</td><td>Rp 16.800</td></tr>
-</tbody>
-</table>
+    <div class="input-center">
+        <input type="text" id="basicInput" placeholder="Masukkan berlian (min 5.000)" inputmode="numeric">
+    </div>
 
-<div class="input-center">
-<input type="text" id="basicInput" placeholder="Masukkan berlian (min 5.000)" inputmode="numeric">
+    <div class="result" id="basicResult">
+        Minimal 5.000 berlian untuk bonus.
+    </div>
+
+    <!-- TEKS BONUS BASIC -->
+    <div class="bonus-desc">
+        <p><span class="number">•</span> Bonus Basic akan dihitung jika jumlah pencapaian diamond minimal > 5.000 💎</p>
+        <p><span class="number">•</span> Bonus Basic akan dihitung berdasarkan jumlah pencapaian diamond dikalikan (x) per Rate berdasarkan Level yang dicapai dalam 1 bulan (Validday dan Durasi).</p>
+    </div>
 </div>
-
-<div class="result" id="basicResult">
-Minimal 5.000 berlian untuk bonus.
-</div>
-
-<!-- TEKS BONUS BASIC (tidak kuning) -->
-<div class="bonus-desc">
-    <p><span class="number">•</span> Bonus Basic akan dihitung jika jumlah pencapaian diamond minimal > 5.000 💎</p>
-    <p><span class="number">•</span> Bonus Basic akan dihitung berdasarkan jumlah pencapaian diamond dikalikan (x) per Rate berdasarkan Level yang dicapai dalam 1 bulan (Validday dan Durasi).</p>
-</div>
-
-</div> <!-- end card basic -->
 
 <!-- ============ BONUS INSENTIF HOST ============= -->
 <div class="section-title">🚀 Bonus Insentif Host</div>
 
 <div class="card">
+    <div class="table-responsive">
+        <table class="insentif-table">
+            <thead>
+                <tr>
+                    <th>Peringkat</th>
+                    <th>Rentang Berlian</th>
+                    <th>Naik Peringkat</th>
+                    <th>Mempertahankan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Peringkat 1</td>
+                    <td>50.000</td>
+                    <td>Rp 80.000</td>
+                    <td>Rp 40.000</td>
+                </tr>
+                <tr>
+                    <td>Peringkat 2</td>
+                    <td>80.000</td>
+                    <td>Rp 128.000</td>
+                    <td>Rp 64.000</td>
+                </tr>
+                <tr>
+                    <td>Peringkat 3</td>
+                    <td>150.000</td>
+                    <td>Rp 240.000</td>
+                    <td>Rp 120.000</td>
+                </tr>
+                <tr>
+                    <td>Peringkat 4</td>
+                    <td>350.000</td>
+                    <td>Rp 560.000</td>
+                    <td>Rp 280.000</td>
+                </tr>
+                <tr>
+                    <td>Peringkat 5</td>
+                    <td>500.000</td>
+                    <td>Rp 800.000</td>
+                    <td>Rp 400.000</td>
+                </tr>
+                <tr>
+                    <td>Peringkat 6</td>
+                    <td>800.000</td>
+                    <td>Rp 1.280.000</td>
+                    <td>Rp 640.000</td>
+                </tr>
+                <tr>
+                    <td>Peringkat 7</td>
+                    <td>1.200.000</td>
+                    <td>Rp 1.920.000</td>
+                    <td>Rp 960.000</td>
+                </tr>
+                <tr>
+                    <td>Peringkat 8</td>
+                    <td>1.600.000</td>
+                    <td>Rp 2.560.000</td>
+                    <td>Rp 1.280.000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<!-- Tabel Insentif dengan angka rapi + Rp -->
-<table class="insentif-table">
-<thead>
-<tr>
-<th>Peringkat Kreator</th>
-<th>Rentang Berlian</th>
-<th>Naik Peringkat</th>
-<th>Mempertahankan</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>1</td><td>50.000</td><td>Rp 80.000</td><td>Rp 40.000</td></tr>
-<tr><td>2</td><td>80.000</td><td>Rp 128.000</td><td>Rp 64.000</td></tr>
-<tr><td>3</td><td>150.000</td><td>Rp 240.000</td><td>Rp 120.000</td></tr>
-<tr><td>4</td><td>350.000</td><td>Rp 560.000</td><td>Rp 280.000</td></tr>
-<tr><td>5</td><td>500.000</td><td>Rp 800.000</td><td>Rp 400.000</td></tr>
-<tr><td>6</td><td>800.000</td><td>Rp 1.280.000</td><td>Rp 640.000</td></tr>
-<tr><td>7</td><td>1.200.000</td><td>Rp 1.920.000</td><td>Rp 960.000</td></tr>
-<tr><td>8</td><td>1.600.000</td><td>Rp 2.560.000</td><td>Rp 1.280.000</td></tr>
-</tbody>
-</table>
+    <div class="input-center">
+        <input type="text" id="insentifInput" placeholder="Masukkan berlian host" inputmode="numeric">
+    </div>
 
-<div class="input-center">
-<input type="text" id="insentifInput" placeholder="Masukkan berlian host" inputmode="numeric">
+    <div class="result" id="insentifResult">
+        Minimal 50.000 berlian untuk insentif.
+    </div>
+
+    <!-- TEKS BONUS INSENTIF -->
+    <div class="bonus-desc insentif">
+        <p><span class="number">1.</span> Bonus Insentif akan dihitung jika jumlah pencapaian diamond minimal > 50.000 💎</p>
+        <p><span class="number">2.</span> Bonus Insentif akan dihitung minimal pencapaian Validday 15 Hari dan Durasi 50 Jam.</p>
+        <p><span class="number">3.</span> Bonus Insentif akan dihitung "Naik Peringkat" jika kreator bisa meningkatkan pencapaian Rentang Berlian dibanding bulan lalu.</p>
+        <p><span class="number">4.</span> Bonus Insentif akan dihitung "Mempertahankan" jika kreator bisa mempertahankan pencapaian Rentang Berlian di bulan sebelumnya.</p>
+        <p><span class="number">5.</span> Bonus Insentif tidak akan dihitung jika kreator tidak bisa Naik Peringkat/Mempertahankan.</p>
+    </div>
+
+    <!-- KETENTUAN TAMBAHAN -->
+    <div class="extra-terms">
+        <p><span>1.</span> <span>Bonus Basic dan Bonus Insentif dihitung sesuai syarat & Ketentuan.</span></p>
+        <p><span>2.</span> <span>Diluar Skema Bonus kreator tetap bisa mendapatkan bonus tambahan jika bisa memenangkan Event / Campaign VMF agency.</span></p>
+        <p><span>3.</span> <span>Bonus + Reward event VMF Agency akan dikirimkan setiap tanggal 5 bulan depannya ke Rekening Bank, DANA, OVO, GO-Pay, dll.</span></p>
+    </div>
 </div>
 
-<div class="result" id="insentifResult">
-Minimal 50.000 berlian untuk insentif.
 </div>
-
-<!-- TEKS BONUS INSENTIF (aksen biru) -->
-<div class="bonus-desc insentif">
-    <p><span class="number">1.</span> Bonus Insentif akan dihitung jika jumlah pencapaian diamond minimal > 50.000 💎</p>
-    <p><span class="number">2.</span> Bonus Insentif akan dihitung minimal pencapaian Validday 15 Hari dan Durasi 50 Jam.</p>
-    <p><span class="number">3.</span> Bonus Insentif akan dihitung "Naik Peringkat" jika kreator bisa meningkatkan pencapaian Rentang Berlian dibanding bulan lalu pada tabel Peringkat.</p>
-    <p><span class="number">4.</span> Bonus Insentif akan dihitung "Mempertahankan" jika kreator bisa mempertahankan/ menyamai pencapaian Rentang Berlian di bulan sebelumnya pada tabel Peringkat.</p>
-    <p><span class="number">5.</span> Bonus Insentif tidak akan dihitung jika kreator tidak bisa Naik Peringkat/ Mempertahankan pencapaian Rentang Berlian di bulan sebelumnya pada tabel Peringkat.</p>
-</div>
-
-<!-- KETENTUAN TAMBAHAN -->
-<div class="extra-terms">
-    <p><span>1.</span> <span>Bonus Basic dan Bonus Insentif dihitung sesuai syarat & Ketentuan.</span></p>
-    <p><span>2.</span> <span>Diluar Skema Bonus kreator tetap bisa mendapatkan bonus tambahan jika bisa memenangkan Event / Campaign yang selalu dibuat oleh VMF agency tiap bulannya.</span></p>
-    <p><span>3.</span> <span>Bonus + Reward event VMF Agency akan dikirimkan setiap tanggal 5 bulan depannya ke Rekening Bank, DANA, OVO, GO-Pay, dll.</span></p>
-</div>
-
-</div> <!-- end card insentif -->
-
-</div> <!-- container -->
 
 <footer>
     Design by: <span>Dafid SEO</span> © 2026
@@ -381,7 +474,6 @@ Minimal 50.000 berlian untuk insentif.
 
 <script>
 function formatNumberInput(value){
-    // hapus semua karakter non-digit, lalu format titik ribuan
     let cleaned = value.replace(/\D/g, "");
     return cleaned.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
@@ -391,32 +483,34 @@ function getNumericValue(value){
 }
 
 function formatRupiah(num){
-    return "Rp " + num.toLocaleString("id-ID").replace(/,/g, ".");
+    return "Rp " + Math.round(num).toLocaleString("id-ID").replace(/,/g, ".");
 }
 
+// Basic Input
 document.getElementById("basicInput").addEventListener("input", function(e){
     e.target.value = formatNumberInput(e.target.value);
     let d = getNumericValue(e.target.value);
 
     if(d < 5000){
-        document.getElementById("basicResult").innerHTML = "Tidak mendapat bonus.";
+        document.getElementById("basicResult").innerHTML = '<span class="result-item">Tidak mendapat bonus (minimal 5.000 berlian).</span>';
         return;
     }
 
     document.getElementById("basicResult").innerHTML = `
-        <div class="result-item">Level 1 <span class="highlight">${formatRupiah(Math.round(d * 1.6))}</span></div>
-        <div class="result-item">Level 2 <span class="highlight">${formatRupiah(Math.round(d * 2))}</span></div>
-        <div class="result-item">Level 3 <span class="highlight">${formatRupiah(Math.round(d * 2.4))}</span></div>
-        <div class="result-item">Level 4 <span class="highlight">${formatRupiah(Math.round(d * 3.36))}</span></div>
+        <div class="result-item">Level 1 <span class="highlight">${formatRupiah(d * 1.6)}</span></div>
+        <div class="result-item">Level 2 <span class="highlight">${formatRupiah(d * 2)}</span></div>
+        <div class="result-item">Level 3 <span class="highlight">${formatRupiah(d * 2.4)}</span></div>
+        <div class="result-item">Level 4 <span class="highlight">${formatRupiah(d * 3.36)}</span></div>
     `;
 });
 
+// Insentif Input
 document.getElementById("insentifInput").addEventListener("input", function(e){
     e.target.value = formatNumberInput(e.target.value);
     let d = getNumericValue(e.target.value);
 
     if(d < 50000){
-        document.getElementById("insentifResult").innerHTML = "Tidak memenuhi syarat.";
+        document.getElementById("insentifResult").innerHTML = '<span class="result-item">Tidak memenuhi syarat (minimal 50.000 berlian).</span>';
         return;
     }
 
@@ -435,14 +529,15 @@ document.getElementById("insentifInput").addEventListener("input", function(e){
     for(let i = 0; i < data.length; i++){
         if(d >= data[i].min){
             document.getElementById("insentifResult").innerHTML = `
-                <div class="result-item">Rank ${data[i].rank}</div>
-                <div class="result-item">Bonus Naik <span class="highlight">${formatRupiah(data[i].naik)}</span></div>
-                <div class="result-item">Bonus Mempertahankan <span class="highlight">${formatRupiah(data[i].durasi)}</span></div>
+                <div class="result-item" style="font-weight:600; color:#fff;">Peringkat ${data[i].rank}</div>
+                <div class="result-item">Naik Peringkat <span class="highlight">${formatRupiah(data[i].naik)}</span></div>
+                <div class="result-item">Mempertahankan <span class="highlight">${formatRupiah(data[i].durasi)}</span></div>
             `;
             found = true;
             break;
         }
     }
+    
     if (!found) {
         document.getElementById("insentifResult").innerHTML = "Tidak ada peringkat yang cocok.";
     }
