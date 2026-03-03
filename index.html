@@ -35,7 +35,7 @@ h1 {
     font-weight: 700;
     margin-bottom: 20px;
     line-height: 1.3;
-    background: linear-gradient(90deg, #1915fa, #0b36f5);
+    background: linear-gradient(90deg, #ffffff, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -56,42 +56,47 @@ h1 {
     margin-bottom: 25px;
 }
 
-/* ===== TABEL DENGAN SCROLL ===== */
-.table-responsive {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 0 0 10px 0;
-    border-radius: 12px;
-}
-
+/* ===== TABEL TANPA SCROLL ===== */
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 500px;
     font-size: 12px;
+    table-layout: fixed; /* Membuat lebar kolom tetap */
+    word-wrap: break-word;
 }
 
-.insentif-table {
-    min-width: 400px;
-}
+/* Atur lebar kolom untuk tabel basic */
+.basic-table th:nth-child(1) { width: 15%; } /* Diamond */
+.basic-table th:nth-child(2) { width: 10%; } /* Level */
+.basic-table th:nth-child(3) { width: 12%; } /* Valid Day */
+.basic-table th:nth-child(4) { width: 10%; } /* Durasi */
+.basic-table th:nth-child(5) { width: 10%; } /* Rate */
+.basic-table th:nth-child(6) { width: 15%; } /* Total */
+
+/* Atur lebar kolom untuk tabel insentif */
+.insentif-table th:nth-child(1) { width: 15%; } /* Peringkat */
+.insentif-table th:nth-child(2) { width: 25%; } /* Rentang Berlian */
+.insentif-table th:nth-child(3) { width: 30%; } /* Naik Peringkat */
+.insentif-table th:nth-child(4) { width: 30%; } /* Mempertahankan */
 
 th {
     background: linear-gradient(90deg, #3715fa, #0b0ff5);
     color: #ffffff;
-    padding: 10px 6px;
+    padding: 8px 4px;
     font-weight: 600;
     font-size: 11px;
     text-align: center;
-    white-space: nowrap;
+    white-space: normal; /* Membolehkan teks wrap */
+    word-break: break-word;
 }
 
 td {
-    padding: 8px 6px;
+    padding: 8px 4px;
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     font-weight: 400;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-word;
 }
 
 /* Kolom Rate (pake koma) */
@@ -101,12 +106,13 @@ td:nth-child(5) {
 }
 
 /* Kolom Total, Naik Peringkat, Mempertahankan (pake Rp dan titik) */
-td:last-child,
+.basic-table td:last-child,
 .insentif-table td:nth-child(3),
 .insentif-table td:nth-child(4) {
     font-weight: 600;
     color: #facc15;
     font-family: monospace;
+    font-size: 11px;
 }
 
 tr:hover {
@@ -167,7 +173,7 @@ input:focus {
     font-family: monospace;
 }
 
-/* ===== PERBAIKAN TEKS DESKRIPSI DENGAN BULLET ===== */
+/* ===== TEKS DESKRIPSI DENGAN BULLET ===== */
 .bonus-desc {
     background: rgba(6, 78, 59, 0.25);
     border-left: 4px solid #2dd4bf;
@@ -184,7 +190,6 @@ input:focus {
     border-left-color: #38bdf8;
 }
 
-/* Style untuk setiap paragraf dengan bullet */
 .bonus-desc p {
     display: flex;
     align-items: flex-start;
@@ -197,7 +202,6 @@ input:focus {
     margin-bottom: 0;
 }
 
-/* Style untuk bullet/nomor */
 .bullet {
     display: inline-block;
     min-width: 24px;
@@ -211,7 +215,6 @@ input:focus {
     color: #7ab7ef;
 }
 
-/* Style untuk teks */
 .bonus-desc .text {
     flex: 1;
     word-break: break-word;
@@ -274,6 +277,27 @@ footer span {
         padding: 10px 6px;
     }
     
+    /* Perkecil font tabel di HP */
+    table {
+        font-size: 10px;
+    }
+    
+    th {
+        font-size: 9px;
+        padding: 6px 2px;
+    }
+    
+    td {
+        font-size: 9px;
+        padding: 6px 2px;
+    }
+    
+    .basic-table td:last-child,
+    .insentif-table td:nth-child(3),
+    .insentif-table td:nth-child(4) {
+        font-size: 9px;
+    }
+    
     .bonus-desc {
         padding: 14px 12px;
         font-size: 12px;
@@ -293,15 +317,30 @@ footer span {
         padding: 14px 12px;
         font-size: 12px;
     }
-    
-    .extra-terms p {
-        gap: 8px;
-        margin-bottom: 10px;
-    }
 }
 
 /* Untuk HP sangat kecil */
 @media (max-width: 380px) {
+    table {
+        font-size: 9px;
+    }
+    
+    th {
+        font-size: 8px;
+        padding: 5px 2px;
+    }
+    
+    td {
+        font-size: 8px;
+        padding: 5px 2px;
+    }
+    
+    .basic-table td:last-child,
+    .insentif-table td:nth-child(3),
+    .insentif-table td:nth-child(4) {
+        font-size: 8px;
+    }
+    
     .bonus-desc {
         padding: 12px 10px;
         font-size: 11px;
@@ -334,54 +373,52 @@ footer span {
 <div class="section-title">💰 Bonus Basic</div>
 
 <div class="card">
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th>Diamond</th>
-                    <th>Level</th>
-                    <th>Valid Day</th>
-                    <th>Durasi</th>
-                    <th>Rate</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>5.000</td>
-                    <td>Lv 1</td>
-                    <td>15H</td>
-                    <td>50J</td>
-                    <td>1,60</td>
-                    <td>Rp 8.000</td>
-                </tr>
-                <tr>
-                    <td>5.000</td>
-                    <td>Lv 2</td>
-                    <td>20H</td>
-                    <td>80J</td>
-                    <td>2,00</td>
-                    <td>Rp 10.000</td>
-                </tr>
-                <tr>
-                    <td>5.000</td>
-                    <td>Lv 3</td>
-                    <td>22H</td>
-                    <td>100J</td>
-                    <td>2,40</td>
-                    <td>Rp 12.000</td>
-                </tr>
-                <tr>
-                    <td>5.000</td>
-                    <td>Lv 4</td>
-                    <td>25H</td>
-                    <td>120J</td>
-                    <td>3,36</td>
-                    <td>Rp 16.800</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <table class="basic-table">
+        <thead>
+            <tr>
+                <th>Diamond</th>
+                <th>Level</th>
+                <th>Valid Day</th>
+                <th>Durasi</th>
+                <th>Rate</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>5.000</td>
+                <td>Lv 1</td>
+                <td>15H</td>
+                <td>50J</td>
+                <td>1,60</td>
+                <td>Rp 8.000</td>
+            </tr>
+            <tr>
+                <td>5.000</td>
+                <td>Lv 2</td>
+                <td>20H</td>
+                <td>80J</td>
+                <td>2,00</td>
+                <td>Rp 10.000</td>
+            </tr>
+            <tr>
+                <td>5.000</td>
+                <td>Lv 3</td>
+                <td>22H</td>
+                <td>100J</td>
+                <td>2,40</td>
+                <td>Rp 12.000</td>
+            </tr>
+            <tr>
+                <td>5.000</td>
+                <td>Lv 4</td>
+                <td>25H</td>
+                <td>120J</td>
+                <td>3,36</td>
+                <td>Rp 16.800</td>
+            </tr>
+        </tbody>
+    </table>
 
     <div class="input-center">
         <input type="text" id="basicInput" placeholder="Masukkan berlian (min 5.000)" inputmode="numeric">
@@ -391,7 +428,7 @@ footer span {
         Minimal 5.000 berlian untuk bonus.
     </div>
 
-    <!-- TEKS BONUS BASIC DENGAN BULLET YANG RAPI -->
+    <!-- TEKS BONUS BASIC -->
     <div class="bonus-desc">
         <p>
             <span class="bullet">•</span>
@@ -408,68 +445,66 @@ footer span {
 <div class="section-title">🚀 Bonus Insentif Host</div>
 
 <div class="card">
-    <div class="table-responsive">
-        <table class="insentif-table">
-            <thead>
-                <tr>
-                    <th>Peringkat</th>
-                    <th>Rentang Berlian</th>
-                    <th>Naik Peringkat</th>
-                    <th>Mempertahankan</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>50.000</td>
-                    <td>Rp 80.000</td>
-                    <td>Rp 40.000</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>80.000</td>
-                    <td>Rp 128.000</td>
-                    <td>Rp 64.000</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>150.000</td>
-                    <td>Rp 240.000</td>
-                    <td>Rp 120.000</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>350.000</td>
-                    <td>Rp 560.000</td>
-                    <td>Rp 280.000</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>500.000</td>
-                    <td>Rp 800.000</td>
-                    <td>Rp 400.000</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>800.000</td>
-                    <td>Rp 1.280.000</td>
-                    <td>Rp 640.000</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>1.200.000</td>
-                    <td>Rp 1.920.000</td>
-                    <td>Rp 960.000</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>1.600.000</td>
-                    <td>Rp 2.560.000</td>
-                    <td>Rp 1.280.000</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <table class="insentif-table">
+        <thead>
+            <tr>
+                <th>Peringkat</th>
+                <th>Rentang Berlian</th>
+                <th>Naik Peringkat</th>
+                <th>Mempertahankan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>50.000</td>
+                <td>Rp 80.000</td>
+                <td>Rp 40.000</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>80.000</td>
+                <td>Rp 128.000</td>
+                <td>Rp 64.000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>150.000</td>
+                <td>Rp 240.000</td>
+                <td>Rp 120.000</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>350.000</td>
+                <td>Rp 560.000</td>
+                <td>Rp 280.000</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>500.000</td>
+                <td>Rp 800.000</td>
+                <td>Rp 400.000</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>800.000</td>
+                <td>Rp 1.280.000</td>
+                <td>Rp 640.000</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>1.200.000</td>
+                <td>Rp 1.920.000</td>
+                <td>Rp 960.000</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>1.600.000</td>
+                <td>Rp 2.560.000</td>
+                <td>Rp 1.280.000</td>
+            </tr>
+        </tbody>
+    </table>
 
     <div class="input-center">
         <input type="text" id="insentifInput" placeholder="Masukkan berlian host" inputmode="numeric">
@@ -479,7 +514,7 @@ footer span {
         Minimal 50.000 berlian untuk insentif.
     </div>
 
-    <!-- TEKS BONUS INSENTIF DENGAN NOMOR YANG RAPI -->
+    <!-- TEKS BONUS INSENTIF -->
     <div class="bonus-desc insentif">
         <p>
             <span class="bullet">1.</span>
@@ -503,7 +538,7 @@ footer span {
         </p>
     </div>
 
-    <!-- KETENTUAN TAMBAHAN DENGAN NOMOR RAPI -->
+    <!-- KETENTUAN TAMBAHAN -->
     <div class="extra-terms">
         <p>
             <span class="bullet">1.</span>
