@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tabel Bonus VINS GROUP 2026</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
@@ -56,7 +54,6 @@ h1{
 table{
     width:100%;
     border-collapse:collapse;
-    margin-bottom:15px;
 }
 
 th{
@@ -75,18 +72,6 @@ td{
 
 tr:hover{
     background:rgba(255,255,255,0.05);
-}
-
-.note{
-    font-size:13px;
-    line-height:1.6;
-    color:#cbd5e1;
-    margin-bottom:15px;
-}
-
-.note ul{
-    padding-left:18px;
-    margin-top:5px;
 }
 
 .input-center{
@@ -136,15 +121,48 @@ input:focus{
     font-weight:600;
 }
 
-@media(max-width:600px){
-    .result-item{
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-        gap:4px;
-    }
+/* ===== DESKRIPSI BONUS (TIDAK KUNING) ===== */
+.bonus-desc {
+    background: rgba(6, 78, 59, 0.25);        /* hijau tua gelap */
+    border-left: 4px solid #2dd4bf;            /* aksen teal */
+    padding: 16px 18px;
+    border-radius: 12px;
+    margin: 20px 0 10px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #e2e8f0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+.bonus-desc.insentif {
+    background: rgba(25, 55, 90, 0.35);         /* biru tua gelap */
+    border-left-color: #38bdf8;                 /* aksen biru */
+}
+
+.bonus-desc p {
+    margin: 8px 0;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.bonus-desc .number {
+    font-weight: 700;
+    color: #94e2d0;                             /* hijau mint untuk angka */
+    min-width: 28px;
+    display: inline-block;
+}
+
+.bonus-desc.insentif .number {
+    color: #7ab7ef;                              /* biru muda untuk angka */
+}
+
+.bonus-desc i {
+    color: #cbd5e1;
+    font-style: italic;
+}
+
+/* footer */
 footer{
     text-align:center;
     padding:18px 10px;
@@ -158,16 +176,27 @@ footer span{
     color:#facc15;
     font-weight:600;
 }
+
+/* responsive untuk teks deskripsi */
+@media(max-width:600px){
+    .bonus-desc p {
+        flex-direction: column;
+        gap: 3px;
+    }
+    .bonus-desc .number {
+        min-width: auto;
+    }
+}
 </style>
 </head>
-
 <body>
 
 <div class="container">
 
 <h1>Tabel Bonus VINS GROUP 2026</h1>
 
-<div class="section-title">Bonus Basic</div>
+<!-- ============ BONUS BASIC ============= -->
+<div class="section-title">💰 Bonus Basic</div>
 
 <div class="card">
 
@@ -190,11 +219,6 @@ footer span{
 </tbody>
 </table>
 
-<div class="note">
-- Bonus Basic akan dihitung jika jumlah pencapaian diamond minimal > 5.000<br>
-- Bonus Basic akan dihitung berdasarkan jumlah pencapaian diamond dikalikan (x) Rate berdasarkan Level yang dicapai dalam 1 bulan (Validday dan Durasi).
-</div>
-
 <div class="input-center">
 <input type="text" id="basicInput" placeholder="Masukkan berlian (min 5.000)">
 </div>
@@ -203,9 +227,16 @@ footer span{
 Minimal 5.000 berlian untuk bonus.
 </div>
 
+<!-- TEKS BONUS BASIC (tidak kuning) -->
+<div class="bonus-desc">
+    <p><span class="number">•</span> Bonus Basic akan dihitung jika jumlah pencapaian diamond minimal > 5.000 💎</p>
+    <p><span class="number">•</span> Bonus Basic akan dihitung berdasarkan jumlah pencapaian diamond dikalikan (x) per Rate berdasarkan Level yang dicapai dalam 1 bulan (Validday dan Durasi).</p>
 </div>
 
-<div class="section-title">Bonus Insentif Host</div>
+</div> <!-- end card basic -->
+
+<!-- ============ BONUS INSENTIF HOST ============= -->
+<div class="section-title">🚀 Bonus Insentif Host</div>
 
 <div class="card">
 
@@ -230,14 +261,6 @@ Minimal 5.000 berlian untuk bonus.
 </tbody>
 </table>
 
-<div class="note">
-1. Bonus Insentif akan dihitung jika jumlah pencapaian diamond minimal > 50.000 💎<br>
-2. Bonus Insentif akan dihitung minimal pencapaian Validday 15 Hari dan Durasi 50 Jam<br>
-3. Bonus Insentif akan dihitung "Naik Peringkat" jika kreator bisa meningkatkan pencapaian Rentang Berlian dibanding bulan lalu pada tabel Peringkat<br>
-4. Bonus Insentif akan dihitung "Mempertahankan" jika kreator bisa mempertahankan/menyamai pencapaian Rentang Berlian di bulan sebelumnya<br>
-5. Bonus Insentif tidak akan dihitung jika kreator tidak bisa Naik Peringkat/Mempertahankan pencapaian bulan sebelumnya.
-</div>
-
 <div class="input-center">
 <input type="text" id="insentifInput" placeholder="Masukkan berlian host">
 </div>
@@ -246,18 +269,28 @@ Minimal 5.000 berlian untuk bonus.
 Minimal 50.000 berlian untuk insentif.
 </div>
 
+<!-- TEKS BONUS INSENTIF (tidak kuning, aksen biru) -->
+<div class="bonus-desc insentif">
+    <p><span class="number">1.</span> Bonus Insentif akan dihitung jika jumlah pencapaian diamond minimal > 50.000 💎</p>
+    <p><span class="number">2.</span> Bonus Insentif akan dihitung minimal pencapaian Validday 15 Hari dan Durasi 50 Jam.</p>
+    <p><span class="number">3.</span> Bonus Insentif akan dihitung "Naik Peringkat" jika kreator bisa meningkatkan pencapaian Rentang Berlian dibanding bulan lalu pada tabel Peringkat.</p>
+    <p><span class="number">4.</span> Bonus Insentif akan dihitung "Mempertahankan" jika kreator bisa mempertahankan/ menyamai pencapaian Rentang Berlian di bulan sebelumnya pada tabel Peringkat.</p>
+    <p><span class="number">5.</span> Bonus Insentif tidak akan dihitung jika kreator tidak bisa Naik Peringkat/ Mempertahankan pencapaian Rentang Berlian di bulan sebelumnya pada tabel Peringkat.</p>
 </div>
 
-<div class="note">
-1. Bonus Basic dan Bonus Insentif dihitung sesuai syarat & ketentuan.<br>
-2. Diluar Skema Bonus, kreator tetap bisa mendapatkan bonus tambahan jika bisa memenangkan Event/Campaign yang dibuat oleh VINS Group setiap bulannya.<br>
-3. Bonus + Reward Event VMF Agency akan dikirim setiap tanggal 5 bulan berikutnya ke Rekening Bank, DANA, OVO, GO-Pay, dll.
+<!-- KETENTUAN TAMBAHAN DI LUAR KARTU (masih dalam card) TAPI AGAR JELAS PISAH, KITA BUAT DIV DENGAN STYLE SAMA -->
+<div style="margin-top: 25px; padding: 16px 18px; background: rgba(0,0,0,0.3); border-radius: 14px; border: 1px solid rgba(255,255,255,0.05);">
+    <p style="display:flex; gap:8px; margin:8px 0;"><span style="color:#94a3b8; font-weight:700;">1.</span> <span style="color:#e2e8f0;">Bonus Basic dan Bonus Insentif dihitung sesuai syarat & Ketentuan.</span></p>
+    <p style="display:flex; gap:8px; margin:8px 0;"><span style="color:#94a3b8; font-weight:700;">2.</span> <span style="color:#e2e8f0;">Diluar Skema Bonus kreator tetap bisa mendapatkan bonus tambahan jika bisa memenangkan Event / Campaign yang selalu dibuat oleh VMF agency tiap bulannya.</span></p>
+    <p style="display:flex; gap:8px; margin:8px 0;"><span style="color:#94a3b8; font-weight:700;">3.</span> <span style="color:#e2e8f0;">Bonus + Reward event VMF Agency akan dikirimkan setiap tanggal 5 bulan depannya ke Rekening Bank, DANA, OVO, GO-Pay, dll.</span></p>
 </div>
 
-</div>
+</div> <!-- end card insentif -->
+
+</div> <!-- container -->
 
 <footer>
-Design by: <span>Dafid SEO</span> © 2026
+    Design by: <span>Dafid SEO</span> © 2026
 </footer>
 
 <script>
@@ -273,6 +306,55 @@ function getNumericValue(value){
 function formatRupiah(num){
     return "Rp " + num.toLocaleString("id-ID");
 }
+
+document.getElementById("basicInput").addEventListener("input",function(e){
+    e.target.value=formatNumberInput(e.target.value);
+    let d=getNumericValue(e.target.value);
+
+    if(d<5000){
+        document.getElementById("basicResult").innerHTML="Tidak mendapat bonus.";
+        return;
+    }
+
+    document.getElementById("basicResult").innerHTML=`
+        <div class="result-item">Level 1 <span class="highlight">${formatRupiah(d*1.6)}</span></div>
+        <div class="result-item">Level 2 <span class="highlight">${formatRupiah(d*2)}</span></div>
+        <div class="result-item">Level 3 <span class="highlight">${formatRupiah(d*2.4)}</span></div>
+        <div class="result-item">Level 4 <span class="highlight">${formatRupiah(d*3.36)}</span></div>
+    `;
+});
+
+document.getElementById("insentifInput").addEventListener("input",function(e){
+    e.target.value=formatNumberInput(e.target.value);
+    let d=getNumericValue(e.target.value);
+
+    if(d<50000){
+        document.getElementById("insentifResult").innerHTML="Tidak memenuhi syarat.";
+        return;
+    }
+
+    let data=[
+        {rank:8,min:1600000,naik:2560000,durasi:1280000},
+        {rank:7,min:1200000,naik:1920000,durasi:960000},
+        {rank:6,min:800000,naik:1280000,durasi:640000},
+        {rank:5,min:500000,naik:800000,durasi:400000},
+        {rank:4,min:350000,naik:560000,durasi:280000},
+        {rank:3,min:150000,naik:240000,durasi:120000},
+        {rank:2,min:80000,naik:128000,durasi:64000},
+        {rank:1,min:50000,naik:80000,durasi:40000}
+    ];
+
+    for(let i=0;i<data.length;i++){
+        if(d>=data[i].min){
+            document.getElementById("insentifResult").innerHTML=`
+                <div class="result-item">Rank ${data[i].rank}</div>
+                <div class="result-item">Bonus Naik <span class="highlight">${formatRupiah(data[i].naik)}</span></div>
+                <div class="result-item">Bonus Durasi <span class="highlight">${formatRupiah(data[i].durasi)}</span></div>
+            `;
+            break;
+        }
+    }
+});
 </script>
 
 </body>
