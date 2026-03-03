@@ -56,6 +56,7 @@ h1{
 table{
     width:100%;
     border-collapse:collapse;
+    margin-bottom:15px;
 }
 
 th{
@@ -74,6 +75,18 @@ td{
 
 tr:hover{
     background:rgba(255,255,255,0.05);
+}
+
+.note{
+    font-size:13px;
+    line-height:1.6;
+    color:#cbd5e1;
+    margin-bottom:15px;
+}
+
+.note ul{
+    padding-left:18px;
+    margin-top:5px;
 }
 
 .input-center{
@@ -132,7 +145,6 @@ input:focus{
     }
 }
 
-/* ===== FOOTER ===== */
 footer{
     text-align:center;
     padding:18px 10px;
@@ -178,6 +190,11 @@ footer span{
 </tbody>
 </table>
 
+<div class="note">
+- Bonus Basic akan dihitung jika jumlah pencapaian diamond minimal > 5.000<br>
+- Bonus Basic akan dihitung berdasarkan jumlah pencapaian diamond dikalikan (x) Rate berdasarkan Level yang dicapai dalam 1 bulan (Validday dan Durasi).
+</div>
+
 <div class="input-center">
 <input type="text" id="basicInput" placeholder="Masukkan berlian (min 5.000)">
 </div>
@@ -195,10 +212,10 @@ Minimal 5.000 berlian untuk bonus.
 <table>
 <thead>
 <tr>
-<th>Rank</th>
-<th>Berlian</th>
-<th>Naik</th>
-<th>Durasi</th>
+<th>Peringkat Kreator</th>
+<th>Rentang Berlian</th>
+<th>Naik Peringkat</th>
+<th>Mempertahankan</th>
 </tr>
 </thead>
 <tbody>
@@ -213,6 +230,14 @@ Minimal 5.000 berlian untuk bonus.
 </tbody>
 </table>
 
+<div class="note">
+1. Bonus Insentif akan dihitung jika jumlah pencapaian diamond minimal > 50.000 💎<br>
+2. Bonus Insentif akan dihitung minimal pencapaian Validday 15 Hari dan Durasi 50 Jam<br>
+3. Bonus Insentif akan dihitung "Naik Peringkat" jika kreator bisa meningkatkan pencapaian Rentang Berlian dibanding bulan lalu pada tabel Peringkat<br>
+4. Bonus Insentif akan dihitung "Mempertahankan" jika kreator bisa mempertahankan/menyamai pencapaian Rentang Berlian di bulan sebelumnya<br>
+5. Bonus Insentif tidak akan dihitung jika kreator tidak bisa Naik Peringkat/Mempertahankan pencapaian bulan sebelumnya.
+</div>
+
 <div class="input-center">
 <input type="text" id="insentifInput" placeholder="Masukkan berlian host">
 </div>
@@ -223,10 +248,16 @@ Minimal 50.000 berlian untuk insentif.
 
 </div>
 
+<div class="note">
+1. Bonus Basic dan Bonus Insentif dihitung sesuai syarat & ketentuan.<br>
+2. Diluar Skema Bonus, kreator tetap bisa mendapatkan bonus tambahan jika bisa memenangkan Event/Campaign yang dibuat oleh VINS Group setiap bulannya.<br>
+3. Bonus + Reward Event VMF Agency akan dikirim setiap tanggal 5 bulan berikutnya ke Rekening Bank, DANA, OVO, GO-Pay, dll.
+</div>
+
 </div>
 
 <footer>
-    Design by: <span>Dafid SEO</span> © 2026
+Design by: <span>Dafid SEO</span> © 2026
 </footer>
 
 <script>
@@ -242,55 +273,6 @@ function getNumericValue(value){
 function formatRupiah(num){
     return "Rp " + num.toLocaleString("id-ID");
 }
-
-document.getElementById("basicInput").addEventListener("input",function(e){
-    e.target.value=formatNumberInput(e.target.value);
-    let d=getNumericValue(e.target.value);
-
-    if(d<5000){
-        document.getElementById("basicResult").innerHTML="Tidak mendapat bonus.";
-        return;
-    }
-
-    document.getElementById("basicResult").innerHTML=`
-        <div class="result-item">Level 1 <span class="highlight">${formatRupiah(d*1.6)}</span></div>
-        <div class="result-item">Level 2 <span class="highlight">${formatRupiah(d*2)}</span></div>
-        <div class="result-item">Level 3 <span class="highlight">${formatRupiah(d*2.4)}</span></div>
-        <div class="result-item">Level 4 <span class="highlight">${formatRupiah(d*3.36)}</span></div>
-    `;
-});
-
-document.getElementById("insentifInput").addEventListener("input",function(e){
-    e.target.value=formatNumberInput(e.target.value);
-    let d=getNumericValue(e.target.value);
-
-    if(d<50000){
-        document.getElementById("insentifResult").innerHTML="Tidak memenuhi syarat.";
-        return;
-    }
-
-    let data=[
-        {rank:8,min:1600000,naik:2560000,durasi:1280000},
-        {rank:7,min:1200000,naik:1920000,durasi:960000},
-        {rank:6,min:800000,naik:1280000,durasi:640000},
-        {rank:5,min:500000,naik:800000,durasi:400000},
-        {rank:4,min:350000,naik:560000,durasi:280000},
-        {rank:3,min:150000,naik:240000,durasi:120000},
-        {rank:2,min:80000,naik:128000,durasi:64000},
-        {rank:1,min:50000,naik:80000,durasi:40000}
-    ];
-
-    for(let i=0;i<data.length;i++){
-        if(d>=data[i].min){
-            document.getElementById("insentifResult").innerHTML=`
-                <div class="result-item">Rank ${data[i].rank}</div>
-                <div class="result-item">Bonus Naik <span class="highlight">${formatRupiah(data[i].naik)}</span></div>
-                <div class="result-item">Bonus Durasi <span class="highlight">${formatRupiah(data[i].durasi)}</span></div>
-            `;
-            break;
-        }
-    }
-});
 </script>
 
 </body>
