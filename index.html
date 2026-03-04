@@ -61,23 +61,21 @@ table {
     width: 100%;
     border-collapse: collapse;
     font-size: 12px;
-    table-layout: fixed; /* Membuat lebar kolom tetap */
+    table-layout: fixed;
     word-wrap: break-word;
 }
 
-/* Atur lebar kolom untuk tabel basic */
-.basic-table th:nth-child(1) { width: 15%; } /* Diamond */
-.basic-table th:nth-child(2) { width: 10%; } /* Level */
-.basic-table th:nth-child(3) { width: 12%; } /* Valid Day */
-.basic-table th:nth-child(4) { width: 10%; } /* Durasi */
-.basic-table th:nth-child(5) { width: 10%; } /* Rate */
-.basic-table th:nth-child(6) { width: 15%; } /* Total */
+.basic-table th:nth-child(1) { width: 15%; }
+.basic-table th:nth-child(2) { width: 10%; }
+.basic-table th:nth-child(3) { width: 12%; }
+.basic-table th:nth-child(4) { width: 10%; }
+.basic-table th:nth-child(5) { width: 10%; }
+.basic-table th:nth-child(6) { width: 15%; }
 
-/* Atur lebar kolom untuk tabel insentif */
-.insentif-table th:nth-child(1) { width: 15%; } /* Peringkat */
-.insentif-table th:nth-child(2) { width: 25%; } /* Rentang Berlian */
-.insentif-table th:nth-child(3) { width: 30%; } /* Naik Peringkat */
-.insentif-table th:nth-child(4) { width: 30%; } /* Mempertahankan */
+.insentif-table th:nth-child(1) { width: 15%; }
+.insentif-table th:nth-child(2) { width: 25%; }
+.insentif-table th:nth-child(3) { width: 30%; }
+.insentif-table th:nth-child(4) { width: 30%; }
 
 th {
     background: linear-gradient(90deg, #3715fa, #0b0ff5);
@@ -86,7 +84,7 @@ th {
     font-weight: 600;
     font-size: 11px;
     text-align: center;
-    white-space: normal; /* Membolehkan teks wrap */
+    white-space: normal;
     word-break: break-word;
 }
 
@@ -99,13 +97,11 @@ td {
     word-break: break-word;
 }
 
-/* Kolom Rate (pake koma) */
 td:nth-child(5) {
     font-family: monospace;
     font-weight: 500;
 }
 
-/* Kolom Total, Naik Peringkat, Mempertahankan (pake Rp dan titik) */
 .basic-table td:last-child,
 .insentif-table td:nth-child(3),
 .insentif-table td:nth-child(4) {
@@ -119,7 +115,6 @@ tr:hover {
     background: rgba(255, 255, 255, 0.05);
 }
 
-/* Input */
 .input-center {
     text-align: center;
     margin: 15px 0 12px;
@@ -145,7 +140,6 @@ input:focus {
     background: #0f172a;
 }
 
-/* Result card */
 .result {
     margin-top: 15px;
     padding: 12px;
@@ -173,7 +167,6 @@ input:focus {
     font-family: monospace;
 }
 
-/* ===== TEKS DESKRIPSI DENGAN BULLET ===== */
 .bonus-desc {
     background: rgba(6, 78, 59, 0.25);
     border-left: 4px solid #2dd4bf;
@@ -220,7 +213,6 @@ input:focus {
     word-break: break-word;
 }
 
-/* Extra terms */
 .extra-terms {
     margin-top: 20px;
     padding: 16px 14px;
@@ -267,7 +259,6 @@ footer span {
     font-weight: 600;
 }
 
-/* Responsive untuk HP */
 @media (max-width: 600px) {
     .container {
         padding: 10px 8px;
@@ -277,7 +268,6 @@ footer span {
         padding: 10px 6px;
     }
     
-    /* Perkecil font tabel di HP */
     table {
         font-size: 10px;
     }
@@ -319,7 +309,6 @@ footer span {
     }
 }
 
-/* Untuk HP sangat kecil */
 @media (max-width: 380px) {
     table {
         font-size: 9px;
@@ -428,7 +417,6 @@ footer span {
         Minimal 5.000 berlian untuk bonus.
     </div>
 
-    <!-- TEKS BONUS BASIC -->
     <div class="bonus-desc">
         <p>
             <span class="bullet">•</span>
@@ -514,7 +502,6 @@ footer span {
         Minimal 50.000 berlian untuk insentif.
     </div>
 
-    <!-- TEKS BONUS INSENTIF -->
     <div class="bonus-desc insentif">
         <p>
             <span class="bullet">1.</span>
@@ -538,7 +525,6 @@ footer span {
         </p>
     </div>
 
-    <!-- KETENTUAN TAMBAHAN -->
     <div class="extra-terms">
         <p>
             <span class="bullet">1.</span>
@@ -585,11 +571,19 @@ function getNumericValue(value){
     return parseInt(value.replace(/\./g, "")) || 0;
 }
 
-function formatRupiah(num){
-    return "Rp " + Math.round(num).toLocaleString("id-ID").replace(/,/g, ".");
+function formatRupiahDecimal(num) {
+    // Format dengan 2 angka desimal tanpa pembulatan paksa
+    // Menggunakan toFixed(2) untuk menampilkan 2 desimal
+    let decimalValue = num.toFixed(2);
+    // Pisahkan bagian ribuan dan desimal
+    let parts = decimalValue.split('.');
+    let integerPart = parseInt(parts[0]).toLocaleString('id-ID').replace(/,/g, '.');
+    let decimalPart = parts[1];
+    
+    return `Rp ${integerPart},${decimalPart}`;
 }
 
-// Basic Input
+// Basic Input - PERHITUNGAN PRESISI TANPA PEMBULATAN
 document.getElementById("basicInput").addEventListener("input", function(e){
     e.target.value = formatNumberInput(e.target.value);
     let d = getNumericValue(e.target.value);
@@ -599,11 +593,23 @@ document.getElementById("basicInput").addEventListener("input", function(e){
         return;
     }
 
+    // Rate sesuai tabel (menggunakan 2 desimal)
+    let rate1 = 1.60;
+    let rate2 = 2.00;
+    let rate3 = 2.40;
+    let rate4 = 3.36;
+    
+    // Hitung dengan presisi penuh (tanpa pembulatan)
+    let total1 = d * rate1;
+    let total2 = d * rate2;
+    let total3 = d * rate3;
+    let total4 = d * rate4;
+
     document.getElementById("basicResult").innerHTML = `
-        <div class="result-item">Level 1 <span class="highlight">${formatRupiah(d * 1.6)}</span></div>
-        <div class="result-item">Level 2 <span class="highlight">${formatRupiah(d * 2)}</span></div>
-        <div class="result-item">Level 3 <span class="highlight">${formatRupiah(d * 2.4)}</span></div>
-        <div class="result-item">Level 4 <span class="highlight">${formatRupiah(d * 3.36)}</span></div>
+        <div class="result-item">Level 1 <span class="highlight">${formatRupiahDecimal(total1)}</span></div>
+        <div class="result-item">Level 2 <span class="highlight">${formatRupiahDecimal(total2)}</span></div>
+        <div class="result-item">Level 3 <span class="highlight">${formatRupiahDecimal(total3)}</span></div>
+        <div class="result-item">Level 4 <span class="highlight">${formatRupiahDecimal(total4)}</span></div>
     `;
 });
 
@@ -631,10 +637,11 @@ document.getElementById("insentifInput").addEventListener("input", function(e){
     let found = false;
     for(let i = 0; i < data.length; i++){
         if(d >= data[i].min){
+            // Untuk insentif menggunakan format Rupiah tanpa desimal (sesuai tabel)
             document.getElementById("insentifResult").innerHTML = `
                 <div class="result-item" style="font-weight:600; color:#fff;">Peringkat ${data[i].rank}</div>
-                <div class="result-item">Naik Peringkat <span class="highlight">${formatRupiah(data[i].naik)}</span></div>
-                <div class="result-item">Mempertahankan <span class="highlight">${formatRupiah(data[i].durasi)}</span></div>
+                <div class="result-item">Naik Peringkat <span class="highlight">${formatRupiahDecimal(data[i].naik)}</span></div>
+                <div class="result-item">Mempertahankan <span class="highlight">${formatRupiahDecimal(data[i].durasi)}</span></div>
             `;
             found = true;
             break;
